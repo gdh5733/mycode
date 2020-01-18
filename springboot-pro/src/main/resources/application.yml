@@ -1,0 +1,73 @@
+#应用端口号
+server:
+  port: 8086
+
+#应用名称
+spring:
+  application:
+    name: localhost
+  #数据库相关配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatis
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+    initial-size: 10
+    max-active: 30
+    min-idle: 10
+
+    #redis配置
+  #  redis:
+  #    host: 192.168.1.7
+  #    port: 6379
+  #    password:
+
+
+
+  # 设置自定义banner
+  banner:
+    location: banner.txt
+  #rabbit配置
+  rabbitmq:
+    host: 192.168.1.7   #虚拟机ip
+    port: 5672        # docker 容器映射本地端口号
+    username: guest
+    password: guest
+
+
+# %d-时间格式    %thread-线程  %-5level-从左5字符宽度  %logger{50}-日志50个字符   %msg-信息  %n换行
+#设置在控制台输出的日志格式
+#如果不想要把日志存放在logging.path默认的根目录下,那就采用自定义目录和文件名
+#logging:
+#  file:
+#    name: springboot                       # C:\学习视频\HashMap\log
+#  pattern:
+#    #    console: "%d{yyyy-MM-dd} [%thead] %-5level %logger{50} %msg%n"
+#    file: "%d{yyyy/MM/dd} === [%thead] == %-5level == %logger{50} == %logger{50} == %msg%n"
+
+
+
+
+
+#使spring能够扫描到mapper.xml
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.alan.demo.entity
+
+#像springboot容器当中注册自定义的系统初始化器
+#context:
+#  initializer:
+#    classes: com.alan.demo.initializer.ThirdInitializer
+#  listener:
+#    classes: com.alan.demo.listener.ThirdListener
+
+
+
+# 通过启用debug=true属性,来让控制台自动打印配置报告,
+#  这样我们就可以很方便得知道 那些配置类生效
+#debug: true
+
+logging:
+  file: springboot.log
+
+
+
