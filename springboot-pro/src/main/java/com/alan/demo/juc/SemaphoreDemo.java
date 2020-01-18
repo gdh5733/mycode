@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Description <p>
- * 抢车位 比如说 6个汽车 抢占三个车位 
+ * 抢车位 比如说 6个汽车 抢占三个车位
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
