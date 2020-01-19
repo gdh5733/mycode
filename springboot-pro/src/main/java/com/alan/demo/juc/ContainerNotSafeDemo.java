@@ -1,13 +1,13 @@
 package com.alan.demo.juc;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * @Description 集合类不安全的问题  ArrayList
+ * @Description 集合类不安全的问题
  * 笔记
- * 最好用写时复制来解决ArrayList add数据的时候 照成的不安全  List<String> list = new CopyOnWriteArrayList<>();
+ * 1.最好用写时复制来解决ArrayList add数据的时候 照成的不安全  List<String> list = new CopyOnWriteArrayList<>();
  * 往一个容器添加元素的时候,不直接往当前容器Object[]添加,而是先将当前容器Obejct[]进行Copy,复制出一个新的容器Obejct[] newElements
  * 然后新的容器Object[] newElments里添加元素,添加完元素之后,再将原容器的引用指向新的容器 setArray(newElements); 这样做的好处是
  * 可以对CopyOnWrite容器进行迸发的读,而不需要加锁,因为当前容器不会添加任何元素,所以CopyOnWrite容器也是一种读写分离的思想,读和写不同的容器
@@ -34,6 +34,35 @@ public class ContainerNotSafeDemo {
 
     public static void main(String[] args) {
 
+
+    }
+
+    private static void mapIsNotSafe() {
+        Map<String, String> map = new HashMap<>();//不安全
+//        Map<String, String> map = Collections.synchronizedMap();//安全
+//        Map<String, String> map = new ConcurrentHashMap<>();//安全
+        for (int i = 0; i < 30; i++) {
+            new Thread(() -> {
+                map.put(Thread.currentThread().getName(), UUID.randomUUID().toString().substring(0, 8));
+                System.out.println(map);
+            }, String.valueOf(i)).start();
+        }
+    }
+
+    private static void setNotSafe() {
+        Set<String> set = new HashSet<>();//不安全
+//安全        Set<String> set = Collections.synchronizedSet(new HashSet<>());
+//安全        Set<String> set = new CopyOnWriteArrayList<String>();
+
+        for (int i = 0; i < 50; i++) {
+            new Thread(() -> {
+                set.add(UUID.randomUUID().toString().substring(0, 8));
+                System.out.println(set);
+            }, String.valueOf(i)).start();
+        }
+    }
+
+    private static void listNotSafe() {
         List<String> list = new CopyOnWriteArrayList<>();
         for (int i = 0; i < 50; i++) {
             new Thread(() -> {
@@ -60,8 +89,7 @@ public class ContainerNotSafeDemo {
          *
          * 4 优化建议(同样的错误不犯2次)
          *
-         */
-    }
+         */}
 
 
 }
