@@ -1,0 +1,14 @@
+1. 集合Collection中存储的如果是自定义的类的对象,需要自定义类重写哪个方法? 为什么?
+
+equals()方法。  contains()/remove()/retainsAll()....
+
+List: equals()方法
+Set: (HashSet,LinkedHashSet,为列)： equals(),hashCode()
+     (TreeSet 为例): Comparable: compareTo(Object obj)
+                     Comparator: compare(Object o1,Object o2)
+
+
+2.ArrayList ,LinkedList,Vector三者的相同点与不同点?
+
+
+

@@ -22,5 +22,6 @@ public class StringRedisPrimary {
         //创建Jedis对象,通过Jedis的方法,操作Redis数据
 //        int port = 6379
         Jedis jedis = new Jedis();
+
     }
 }

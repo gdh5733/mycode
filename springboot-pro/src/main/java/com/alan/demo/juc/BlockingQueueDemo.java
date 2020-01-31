@@ -5,8 +5,7 @@ import java.util.concurrent.BlockingQueue;
 
 
 /**
- * @Description
- * <p>
+ * @Description <p>
  * 1.队列
  * 2.阻塞队列
  * 2.1 阻塞队列有没有好的一面

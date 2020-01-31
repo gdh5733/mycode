@@ -1,0 +1,7 @@
+MinorGC的过程(复制->清空->互换)
+
+1: eden 、urvivorFrom 复制到 SurvivorTo, 年龄+1
+首先,当Eden区满的时候会触发第一次GC,把还活着的对象拷贝到SurvivorFrom区,当Eden区再次触发GC的
+时候会扫描Eden区和From区域,对这两个区域进行垃圾回收,经过这次回收后再次触发GC的时候会扫描Eden区
+和From区域,对这两个区域进行垃圾回收,经过这次回收后还存活的对象,则直接复制到To区域(如果有对象的年龄已经达到了老年的标准,则赋值到老年代区),
+tongshi

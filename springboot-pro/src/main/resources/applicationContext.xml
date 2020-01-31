@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--配置自动扫描的包-->
+    <!--基于注解的情况实现AOP  利用ASpectJ-->
+    <context:component-scan base-package="com.alan.demo.spring.AOP3"></context:component-scan>
+
+    <!-- 使Aspject 注解起作用: 自动为匹配的类生成代理对象-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+</beans>
