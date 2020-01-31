@@ -59,9 +59,13 @@ public class HelloGC {
      * 6.-XX:+PrintGCDetails
      * 7.-XX:SurvivorRatio  默认-XX:SurvivorRatio=8,Eden:S0:S1 = 8:1:1 假如 -XX:SurvivorRatio=4,Eden:S0:S1 = 4:1:1,SurvivorRatio值就是设置eden区的比例占多少,S0/S1相同
      * 8.-XX:NewRatio 配置年轻代与老年代在堆结构的占比 默认-XX:NewRatio=2新生代占1,老年代占2,年轻代占整个堆的1/3 假如-XX:NewRatio=4新生代占1,老年代4,年轻代占整个堆的1/5 NewRatio值就是设置老年代的占比,剩下的1给新生代
+     * 9.-XX:MaxTenuringThreshold 设置垃圾最大年龄 默认是15 JDK 1.8   只能调节到 0-15之间
      */
     public static void memoryTest1() {
 
 
     }
+
+
+
 }
