@@ -1,7 +1,13 @@
 MinorGC的过程(复制->清空->互换)
 
-1: eden 、urvivorFrom 复制到 SurvivorTo, 年龄+1
-首先,当Eden区满的时候会触发第一次GC,把还活着的对象拷贝到SurvivorFrom区,当Eden区再次触发GC的
-时候会扫描Eden区和From区域,对这两个区域进行垃圾回收,经过这次回收后再次触发GC的时候会扫描Eden区
-和From区域,对这两个区域进行垃圾回收,经过这次回收后还存活的对象,则直接复制到To区域(如果有对象的年龄已经达到了老年的标准,则赋值到老年代区),
-tongshi
+               1: eden 、urvivorFrom 复制到 SurvivorTo, 年龄+1
+               首先,当Eden区满的时候会触发第一次GC,把还活着的对象拷贝到SurvivorFrom区,当Eden区再次触发GC的
+               时候会扫描Eden区和From区域,对这两个区域进行垃圾回收,经过这次回收后再次触发GC的时候会扫描Eden区
+               和From区域,对这两个区域进行垃圾回收,经过这次回收后还存活的对象,则直接复制到To区域(如果有对象的年龄已经达到了老年的标准,则赋值到老年代区),
+               同时把这些对象的年龄+1
+               2: 清空 eden SurvivorFrom
+               然后,清空Eden和SurvivorFrom中的对象,也即复制之后有交换,谁空谁是to
+
+               3: SurvivorTo  和SurvivorFrom 互换
+               最后,SurvivorTo 和SurvivorFrom互换,原SurvivorTo成为下一次GC时的SurvivorFrom区。部分对象会在From和To区域中复制来复制去,如此交换15次(由JVM参数MaxTenuringThreshold决定,这个参数默认是15)
+               最终如果还是存活,就存入老年代
