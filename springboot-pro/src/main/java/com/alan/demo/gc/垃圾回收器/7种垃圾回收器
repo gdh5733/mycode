@@ -1,0 +1,66 @@
+垃圾收集方式 ->  串行,并行 并行标记清除
+
+
+1.Serial 串行
+它为单线程环境设计且只是用一个线程进行垃圾回收,会暂停所有的用户线程。所以不适合服务器环境
+
+
+2.Parallel 并行
+多个垃圾收集线程并行工作,此时用户线程是暂停的,适用于科学计算/大数据处理首台处理等弱交互场景
+
+3. CMS并行标记清除
+用户线程和垃圾收集线程勇士执行(不一定是并行,可能交替执行),不需要停顿用户线程
+互联网公司多用它,适用对响应时间有要求的场景
+
+
+4.G1
+
+
+思想: 4大垃圾回收算法思想
+
+引用计数
+复制拷贝
+标记清除
+标记整理
+
+落地实现:
+串行回收  -XX:UseSerialGC
+并行回收  -XX:UserParalleGC
+并发回收  CMS
+G1
+
+
+
+查看java默认的垃圾回收器用的是哪一个?
+java -XX:PrintCommandLineFlags -version
+
+
+java的gc回收的类型主要有几种:
+UseSerialGC  UseParallelGC  UseConcMarkSweepGC UseParNewGC UseParallelOldGC  UseG1GC
+
+
+
+
+新生代(Young generation)使用的垃圾收集器?
+Serial ParNew  ParallelScavenge
+
+老年代(Old generation)使用的垃圾收集器?
+CMS  SerialOld  parallelOld
+
+
+标记并清除:(即CMS垃圾收集器的算法)
+1.初始标记(CMS initial mark)        -----Stop the World
+标记GC Root可以直达的对象,耗时短
+2.并发标记(CMS concurrent mark)和用户线程一起 -----Concurrent
+从第一步标记的对象出发,并发地标记可达对象
+3.重新标记(CMS remark) ------Stop the World
+重新进行标记,修正Concurrent Mark 期间由于用户程序运行而导致对象关系间的变化及新创建的对象,耗时短。
+4.并发清除(CMS concurrent sweep)------Concurrent
+并行地进行无用对象的回收
+
+
+
+CMS 优缺点?
+优点: 并发执行,对CPU志愿压力大
+缺点: 采用的标记清除算法会导致大量碎片
+

@@ -7,7 +7,7 @@ package com.alan.demo.gc;
  * 2. jinfo -flag MetaspaceSize 线程ID
  * <p>
  * 第一种,查看参数盘点点家底
- * jps 
+ * jps
  * jinfo -flag 具体参数  java进程编号
  * jinfo -flags         java进程编号
  * <p>
@@ -63,9 +63,6 @@ public class HelloGC {
      */
     public static void memoryTest1() {
 
-
     }
-
-
 
 }
