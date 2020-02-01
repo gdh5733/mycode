@@ -1,7 +1,5 @@
 package com.alan.demo.iocContain.config;
 
-import com.alan.demo.iocContain.entity.Person;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
