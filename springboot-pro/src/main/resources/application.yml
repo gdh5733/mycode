@@ -28,7 +28,7 @@ spring:
     location: banner.txt
   #rabbit配置
   rabbitmq:
-    host: 192.168.1.7   #虚拟机ip
+    host: 192.168.1.6   #虚拟机ip
     port: 5672        # docker 容器映射本地端口号
     username: guest
     password: guest

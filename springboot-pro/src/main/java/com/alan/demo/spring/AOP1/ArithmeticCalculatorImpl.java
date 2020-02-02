@@ -1,5 +1,8 @@
 package com.alan.demo.spring.AOP1;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+
 /**
  * @Description 实现加减乘除四个方法
  * @Author gaodehan
@@ -8,6 +11,8 @@ package com.alan.demo.spring.AOP1;
  * @Date 2020/1/28
  */
 
+@Slf4j
+@Component
 public class ArithmeticCalculatorImpl implements ArithmeticCalculator {
     @Override
     public int add(int i, int j) {

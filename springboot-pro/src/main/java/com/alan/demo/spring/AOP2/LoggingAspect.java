@@ -19,7 +19,7 @@ import java.util.List;
 
 //把这个类声明为一个切面: 需要把该类放入到IOC容器中,在声明为一个切面
 @Aspect
-@Component
+@Component("LoggingAspect1")
 public class LoggingAspect {
 
 
