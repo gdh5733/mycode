@@ -1,4 +1,4 @@
-package com.alan.demo.gc.强软弱虚引用.ref;
+package com.alan.demo.gc.强软弱虚引用;
 
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
