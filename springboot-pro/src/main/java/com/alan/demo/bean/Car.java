@@ -12,14 +12,6 @@ public class Car {
 
     private String brand;
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "brand='" + brand + '\'' +
-                ", price=" + price +
-                '}';
-    }
-
     private Double price;
 
     public String getBrand() {
@@ -36,5 +28,14 @@ public class Car {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "brand='" + brand + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

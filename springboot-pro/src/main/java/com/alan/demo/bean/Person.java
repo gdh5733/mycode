@@ -13,14 +13,6 @@ public class Person {
     private String name;
     private Address address;
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", address=" + address +
-                ", car=" + car +
-                '}';
-    }
 
     private Car car;
 
@@ -46,5 +38,15 @@ public class Person {
 
     public void setCar(Car car) {
         this.car = car;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", address=" + address +
+                ", car=" + car +
+                '}';
     }
 }

@@ -10,7 +10,7 @@
 
     <!--可以使用autowire属性指定自动装配的方式
     byName 根据bean的名字和但前bean的setter 风格的属性名进行自动装配 若有匹配的则自动装配 若没有匹配的则不装配
-    byType 根据bean的类型 进行装配 缺点是如果是两个相同类型的情况下  不直到装配哪一个
+    byType 根据bean的类型 进行装配 缺点是如果是两个相同类型的情况下  不知道装配哪一个
     -->
     <bean id="person" class="com.alan.demo.bean.Person" p:name="Tom"
           autowire="byName"></bean>
