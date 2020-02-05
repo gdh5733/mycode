@@ -1,5 +1,11 @@
 package com.alan.demo.juc;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -82,12 +88,32 @@ class ShareData {
 
 public class ProdConsumer_TraditionDemo {
 
+    //核心线程数
+    private static final int CORE_POOL_SIZE = 1;
+    //最大线程数
+    private static final int MAX_POOL_SIZE = 1;
+
+    //线程空闲时间
+    private static final Long KEEP_ALIVE_TIME = 1L;
+    //队列容量
+    private static final int QUEUE_CAPACITY = 500;
+
 
     public static void main(String[] args) {
-
+        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build();
         ShareData shareData = new ShareData();
 
-        new Thread(() -> {
+
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(
+                CORE_POOL_SIZE,
+                MAX_POOL_SIZE,
+                KEEP_ALIVE_TIME,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(QUEUE_CAPACITY),
+                threadFactory,
+                new ThreadPoolExecutor.CallerRunsPolicy()
+        );
+        executor.execute(() -> {
             for (int i = 0; i < 5; i++) {
                 try {
                     shareData.increment();
@@ -95,9 +121,12 @@ public class ProdConsumer_TraditionDemo {
                     e.printStackTrace();
                 }
             }
-        }, "AA").start();
+        });
 
-        new Thread(() -> {
+        executor.shutdown();
+
+
+        executor.execute(() -> {
             for (int i = 0; i < 5; i++) {
                 try {
                     shareData.decrement();
@@ -105,10 +134,8 @@ public class ProdConsumer_TraditionDemo {
                     e.printStackTrace();
                 }
             }
-
-        }, "BB").start();
-
-
+        });
+        executor.shutdown();
     }
 
 }

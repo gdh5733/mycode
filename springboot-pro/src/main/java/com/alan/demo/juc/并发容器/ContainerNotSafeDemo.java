@@ -59,10 +59,11 @@ public class ContainerNotSafeDemo {
     private static final int CORE_POOL_SIZE = 100;
     //最大线程数
     private static final int MAX_POOL_SIZE = 120;
-    //队列容量
-    private static final int QUEUE_CAPACITY = 500;
+
     //线程空闲时间
     private static final Long KEEP_ALIVE_TIME = 1L;
+    //队列容量
+    private static final int QUEUE_CAPACITY = 500;
 
 
     public static void main(String[] args) {
