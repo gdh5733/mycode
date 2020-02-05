@@ -39,7 +39,6 @@ public class MyThreadPoolDemo {
 
         //模拟有20个用户来办理业务
         for (int i = 0; i < 20; i++) {
-
             //线程池(银行)中有五个窗口干活
             threadPool.execute(() -> {
                 System.out.println(Thread.currentThread().getName() + "\t 办理业务");
