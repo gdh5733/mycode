@@ -14,7 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockTest {
 
-    private static final Lock lock = new ReentrantLock();
+    private static final Lock LOCK = new ReentrantLock();
 
     public static void main(String[] args) {
         new Thread(() -> test(), "线程A").start();
@@ -25,14 +25,14 @@ public class ReentrantLockTest {
      * 简单使用作用跟synchronized一样
      */
     public static void test() {
+        LOCK.lock();
         try {
-            lock.lock();
             System.out.println(Thread.currentThread().getName() + "获取了锁");
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            lock.unlock();
+            LOCK.unlock();
             System.out.println(Thread.currentThread().getName() + "释放了锁");
 
         }

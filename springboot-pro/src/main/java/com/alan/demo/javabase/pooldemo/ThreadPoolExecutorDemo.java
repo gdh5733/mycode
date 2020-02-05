@@ -51,12 +51,10 @@ public class ThreadPoolExecutorDemo {
 
             //创建WorkerThread对象（WorkerThread类实现了Runnable 接口）
             Runnable worker = new MyRunnable("" + "工作任务: " + i);
-
             //执行Runnable
             executor.execute(worker);
             System.out.println(worker);
         }
-
 
         //终止线程池
         executor.shutdown();

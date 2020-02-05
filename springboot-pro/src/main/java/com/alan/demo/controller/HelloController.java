@@ -32,7 +32,6 @@ import java.util.logging.Logger;
 public class HelloController {
 
 
-
     @Autowired
     private ScoreService scoreService;
     int a = 2;
