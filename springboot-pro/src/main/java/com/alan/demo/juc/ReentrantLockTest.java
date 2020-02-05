@@ -32,8 +32,9 @@ public class ReentrantLockTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            System.out.println(Thread.currentThread().getName() + "释放了锁");
             lock.unlock();
+            System.out.println(Thread.currentThread().getName() + "释放了锁");
+
         }
     }
 

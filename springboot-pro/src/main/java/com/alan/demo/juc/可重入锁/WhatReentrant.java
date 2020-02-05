@@ -1,4 +1,4 @@
-package com.alan.demo.juc;
+package com.alan.demo.juc.可重入锁;
 
 /**
  * @Description 可重入锁   就是说某个线程已经获得某个锁,可以再次获取锁而不会出现死锁
