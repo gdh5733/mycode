@@ -27,10 +27,11 @@ public class MyRunnable implements Runnable {
         System.out.println(Thread.currentThread().getName() + " End. Time = " + new Date());
     }
 
-    private void processCommand() {
+    private  void processCommand() {
 
         try {
             Thread.sleep(5000);
+            System.out.println(Thread.currentThread().getName() + "  waiting finished.....................");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

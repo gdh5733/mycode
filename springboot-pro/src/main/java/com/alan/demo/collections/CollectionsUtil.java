@@ -72,14 +72,15 @@ public class CollectionsUtil {
         System.out.println("Collections.swap(arrayList, 2, 5):");
         System.out.println(arrayList);
 
-        // 定制排序的用法
-        Collections.sort(arrayList, new Comparator<Integer>() {
 
+        // 定制排序的用法
+        arrayList.sort(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o2.compareTo(o1);
             }
         });
+
         System.out.println("定制排序后：");
         System.out.println(arrayList);
 

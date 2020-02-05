@@ -33,8 +33,8 @@ public class example3 {
      * 实际上是按值传递
      * 中间发生了 引用拷贝
      *
-     * @param x
-     * @param y
+     * @param x 引用x
+     * @param y 引用y
      */
     private static void swap(Student x, Student y) {
 
