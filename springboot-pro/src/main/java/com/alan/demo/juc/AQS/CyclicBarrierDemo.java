@@ -1,4 +1,4 @@
-package com.alan.demo.juc;
+package com.alan.demo.juc.AQS;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;

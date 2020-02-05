@@ -1,4 +1,4 @@
-package com.alan.demo.juc;
+package com.alan.demo.juc.CAS;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

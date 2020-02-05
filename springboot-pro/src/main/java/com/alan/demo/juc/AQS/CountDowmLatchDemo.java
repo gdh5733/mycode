@@ -1,4 +1,4 @@
-package com.alan.demo.juc;
+package com.alan.demo.juc.AQS;
 
 import com.alan.demo.utils.enums.ContryEnum;
 
