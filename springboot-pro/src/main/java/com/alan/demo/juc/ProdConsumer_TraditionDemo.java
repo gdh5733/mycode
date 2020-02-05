@@ -19,10 +19,8 @@ class ShareData {
      */
     public void increment() throws Exception {
 
-
+        lock.lock();
         try {
-            lock.lock();
-
             //1 判断
             while (number != 0) {
                 //等待,不能生产
@@ -50,10 +48,8 @@ class ShareData {
      */
     public void decrement() throws Exception {
 
-
+        lock.lock();
         try {
-            lock.lock();
-
             //1 判断
             while (number == 0) {
                 //等待,不能生产
