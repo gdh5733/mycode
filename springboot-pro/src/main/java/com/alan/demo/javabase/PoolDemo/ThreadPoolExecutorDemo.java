@@ -1,4 +1,4 @@
-package com.alan.demo.javabase.pooldemo;
+package com.alan.demo.javabase.PoolDemo;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

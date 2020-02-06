@@ -1,4 +1,4 @@
-package com.alan.demo.javabase.pooldemo;
+package com.alan.demo.javabase.PoolDemo;
 
 import java.util.Date;
 
@@ -30,8 +30,9 @@ public class MyRunnable implements Runnable {
     private void processCommand() {
 
         try {
+            System.out.println(Thread.currentThread().getName() + " Start  waiting.....................");
             Thread.sleep(5000);
-            System.out.println(Thread.currentThread().getName() + "  waiting finished.....................");
+            System.out.println(Thread.currentThread().getName() + " waiting finished.....................");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
