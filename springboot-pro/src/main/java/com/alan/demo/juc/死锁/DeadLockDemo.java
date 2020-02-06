@@ -1,4 +1,4 @@
-package com.alan.demo.juc;
+package com.alan.demo.juc.死锁;
 
 import java.util.concurrent.TimeUnit;
 

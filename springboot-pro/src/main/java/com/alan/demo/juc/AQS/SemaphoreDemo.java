@@ -4,7 +4,8 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Description <p>
+ * @Description Semaphore  的主要作用是协调对有限资源的访问
+ * <p>
  * 抢车位 比如说 6个汽车 抢占三个车位
  * @Author gaodehan
  * @Version V1.0.0
@@ -16,7 +17,8 @@ public class SemaphoreDemo {
 
 
     public static void main(String[] args) {
-        Semaphore semaphore = new Semaphore(33);//模拟三个停车位
+        //模拟三个停车位
+        Semaphore semaphore = new Semaphore(33);
 
         for (int i = 0; i <= 6; i++) { //模拟六部汽车
             new Thread(() -> {

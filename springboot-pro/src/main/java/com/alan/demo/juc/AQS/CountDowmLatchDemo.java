@@ -5,10 +5,9 @@ import com.alan.demo.utils.enums.ContryEnum;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @Description CountDowmLatch demo 练习
- * <p>
+ * @Description
+ * CountDowmLatch demo 练习
  * 比如 六个同学 走完了之后  班长最后关门走人
- * <p>
  * 主要功能
  * 让一些线程阻塞直到另一些线程完成一系列操作后才被唤醒
  * CountDownLatch 主要有两个方法,当一个或多个线程调用await方法时,调用线程会被阻塞
@@ -32,7 +31,6 @@ public class CountDowmLatchDemo {
 
     public static void closeDoor() throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(COUNT);
-        ContryEnum[] myArray = ContryEnum.values();
         for (int i = 0; i < 6; i++) {
             new Thread(() -> {
                 System.out.println(Thread.currentThread().getName() + "\t上完自习,离开教室");
