@@ -47,6 +47,8 @@ public class CountDowmLatchDemo {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } finally {
+                        // TODO: 2020/2/6  to do something 
+
                         //运动员到达终点,count数减一
                         count.countDown();
                     }
