@@ -56,6 +56,8 @@ public class UserCartController {
             this.redisTemplate.opsForHash().put(key, obj.getProductId().toString(), obj.getAmount());
             this.redisTemplate.expire(key, 90, TimeUnit.DAYS);
         }
+
+        // TODO: 2020/2/7 发rabbitmq 出去 
     }
 
 
@@ -68,6 +70,8 @@ public class UserCartController {
     public void updateCart(Cart obj) {
         String key = CART_KEY + obj.getUserId();
         this.redisTemplate.opsForHash().put(key, obj.getProductId().toString(), obj.getAmount());
+
+        // TODO: 2020/2/7  发rabbitmq 出去 
     }
 
     /**
@@ -80,6 +84,9 @@ public class UserCartController {
     public void delCart(Long userId, Long productId) {
         String key = CART_KEY + userId;
         this.redisTemplate.opsForHash().delete(key, productId.toString());
+
+        // TODO: 2020/2/7 发rabbitmq 出去
+
     }
 
 
