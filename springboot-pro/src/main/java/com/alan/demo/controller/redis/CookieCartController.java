@@ -1,4 +1,4 @@
-package com.alan.demo.controller;
+package com.alan.demo.controller.redis;
 
 import com.alan.demo.entity.CookieCart;
 import com.alan.demo.service.IdGenerator;
@@ -35,7 +35,6 @@ public class CookieCartController {
 
     @Autowired
     private IdGenerator idGenerator;
-
 
     @Autowired
     private HttpServletResponse response;
