@@ -15,13 +15,6 @@ spring:
     max-active: 30
     min-idle: 10
 
-    #redis配置
-  #  redis:
-  #    host: 192.168.1.7
-  #    port: 6379
-  #    password:
-
-
 
   # 设置自定义banner
   banner:
@@ -32,6 +25,19 @@ spring:
     port: 5672        # docker 容器映射本地端口号
     username: guest
     password: guest
+
+    #redis配置
+  redis:
+    lettuce:
+      pool:
+        max-wait: -1s
+        max-idle: 20
+        min-idle: 10
+      shutdown-timeout: 5s
+    database: 0
+    host: 192.168.1.6
+    port: 6379
+    password: 123456
 
 
 # %d-时间格式    %thread-线程  %-5level-从左5字符宽度  %logger{50}-日志50个字符   %msg-信息  %n换行

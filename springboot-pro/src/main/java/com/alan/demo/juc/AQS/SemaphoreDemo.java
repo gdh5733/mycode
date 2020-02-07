@@ -48,7 +48,8 @@ public class SemaphoreDemo {
         //模拟三个停车位  参数33 相当于拥有的许可证
         Semaphore semaphore = new Semaphore(33);
 
-        for (int i = 0; i <= 6; i++) { //模拟六部汽车
+        //模拟六部汽车
+        for (int i = 0; i <= 6; i++) {
             new Thread(() -> {
                 try {
                     //占到车位 (即当前线程获得到了许可证)

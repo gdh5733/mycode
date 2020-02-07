@@ -2,6 +2,8 @@ package com.alan.demo.redis;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import java.util.HashMap;
+
 /**
  * @Description redis 事务
  * @Author gaodehan
@@ -18,6 +20,7 @@ public class RedisTransaction {
     final static int COUNT_PORT = 6379;
 
     public static void main(String[] args) {
+
         Jedis jedis = null;
         JedisPool pool = null;
     }

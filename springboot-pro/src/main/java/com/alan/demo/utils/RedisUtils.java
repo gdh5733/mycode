@@ -1,110 +1,24 @@
 package com.alan.demo.utils;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.*;
+import com.alibaba.fastjson.JSON;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.SetOperations;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.data.redis.support.atomic.RedisAtomicLong;
 import org.springframework.stereotype.Component;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 
+import javax.annotation.Resource;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-/**
- * @Description redis 工具类
- * @Author gaodehan
- * @Version V1.0.0
- * @Since 1.0
- * @Date 2019/12/28
- */
 
 @Component
 public class RedisUtils {
 
-    @Autowired
+    @Resource
     private RedisTemplate redisTemplate;
-
-    @Autowired
-    private static JedisPool pool;
-
-
-    /**
-     * 创建线程池
-     *
-     * @param host
-     * @param port
-     * @return
-     */
-    public static JedisPool open(String host, int port) {
-        if (pool == null) {
-            //设置线程池的参数
-            JedisPoolConfig config = new JedisPoolConfig();
-
-            //设置最大线程数量
-            config.setMaxTotal(100);
-
-            //设置空闲数
-            config.setMaxIdle(2);
-
-            //设置检查项为true,避免null的情况
-            config.setTestOnBorrow(true);
-
-            //创建JedisPool
-            pool = new JedisPool(config, host, port, 6000, "123456");
-        }
-        return pool;
-    }
-
-    /**
-     * 关闭线程池
-     */
-    public static void close() {
-        if (pool != null) {
-            pool.close();
-        }
-    }
-
-
-    /**
-     * String类型
-     * 写入缓存
-     *
-     * @param key
-     * @param value
-     * @return
-     */
-    public boolean set(final String key, Object value) {
-        boolean result = false;
-        try {
-            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
-            operations.set(key, value);
-            result = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-    /**
-     * 写入缓存设置时效时间
-     *
-     * @param key
-     * @param value
-     * @return
-     */
-    public boolean set(final String key, Object value, Long expireTime, TimeUnit timeUnit) {
-        boolean result = false;
-        try {
-            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
-            operations.set(key, value);
-            redisTemplate.expire(key, expireTime, timeUnit);
-            result = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 
     /**
      * 批量删除对应的value
@@ -127,6 +41,7 @@ public class RedisUtils {
         if (keys.size() > 0) {
             redisTemplate.delete(keys);
         }
+
     }
 
     /**
@@ -156,111 +71,262 @@ public class RedisUtils {
      * @param key
      * @return
      */
-    public Object get(final String key) {
-        Object result = null;
+    public <T> T get(final String key, Class<T> clazz) {
         ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
-        result = operations.get(key);
+        Object obj = operations.get(key);
+        if (key != null && obj != null) {
+            if (clazz == int.class || clazz == Integer.class) {
+                return (T) Integer.valueOf((String) obj);
+            } else if (clazz == String.class) {
+                return (T) obj;
+            } else if (clazz == long.class || clazz == Long.class) {
+                return (T) Long.valueOf((String) obj);
+            } else {
+                return JSON.parseObject((String) obj, clazz);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 写入缓存
+     *
+     * @param key
+     * @param value
+     * @return
+     */
+    public <T> boolean set(final String key, T value) {
+        boolean result = false;
+        try {
+            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+            operations.set(key, beanToString(value));
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return result;
     }
 
     /**
-     * Hash
-     * 哈希 添加
-     *
-     * @param key
-     * @param hashKey
-     * @param value
-     */
-    public void hmSet(String key, Object hashKey, Object value) {
-        HashOperations<String, Object, Object> hash = redisTemplate.opsForHash();
-        hash.put(key, hashKey, value);
-    }
-
-    /**
-     * 哈希获取数据
-     *
-     * @param key
-     * @param hashKey
-     * @return
-     */
-    public Object hmGet(String key, Object hashKey) {
-        HashOperations<String, Object, Object> hash = redisTemplate.opsForHash();
-        return hash.get(key, hashKey);
-    }
-
-    /**
-     * List
-     * 列表添加
-     *
-     * @param k
-     * @param v
-     */
-    public void lPush(String k, Object v) {
-        ListOperations<String, Object> list = redisTemplate.opsForList();
-        list.rightPush(k, v);
-    }
-
-    /**
-     * 列表获取
-     *
-     * @param k
-     * @param l
-     * @param l1
-     * @return
-     */
-    public List<Object> lRange(String k, long l, long l1) {
-        ListOperations<String, Object> list = redisTemplate.opsForList();
-        return list.range(k, l, l1);
-    }
-
-    /**
-     * Set
-     * 集合添加
+     * 写入缓存,带过期时间
      *
      * @param key
      * @param value
-     */
-    public void add(String key, Object value) {
-        SetOperations<String, Object> set = redisTemplate.opsForSet();
-        set.add(key, value);
-    }
-
-    /**
-     * 集合获取
-     *
-     * @param key
      * @return
      */
-    public Set<Object> setMembers(String key) {
-        SetOperations<String, Object> set = redisTemplate.opsForSet();
-        return set.members(key);
+    public <T> boolean set(final String key, T value, Long expireTime) {
+        boolean result = false;
+        try {
+            ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+            operations.set(key, beanToString(value));
+            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public <T> String beanToString(T value) {
+        if (value == null) {
+            return null;
+        }
+        Class<?> clazz = value.getClass();
+        if (clazz == int.class || clazz == Integer.class) {
+            return "" + value;
+        } else if (clazz == String.class) {
+            return (String) value;
+        } else if (clazz == long.class || clazz == Long.class) {
+            return "" + value;
+        } else {
+            return JSON.toJSONString(value);
+        }
     }
 
     /**
-     * 有序集合添加
-     *
-     * @param key
-     * @param value
-     * @param scoure
+     * List集合写入缓存
      */
-    public void zAdd(String key, Object value, double scoure) {
-        ZSetOperations<String, Object> zset = redisTemplate.opsForZSet();
-        zset.add(key, value, scoure);
+    public boolean setList(final String key, Object object) {
+        boolean result = false;
+        try {
+            redisTemplate.opsForList().rightPush(key, object);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     /**
-     * 有序集合获取
-     *
-     * @param key
-     * @param scoure
-     * @param scoure1
-     * @return
+     * List集合写入缓存,带过期时间
      */
-    public Set<Object> rangeByScore(String key, double scoure, double scoure1) {
-        ZSetOperations<String, Object> zset = redisTemplate.opsForZSet();
-        return zset.rangeByScore(key, scoure, scoure1);
+    public boolean setList(final String key, Object object, Long expireTime) {
+        boolean result = false;
+        try {
+            redisTemplate.opsForList().rightPush(key, object);
+            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
+    /**
+     * List集合整个写入缓存
+     */
+    public boolean setListAll(final String key, List list) {
+        boolean result = false;
+        try {
+            redisTemplate.opsForList().rightPushAll(key, list);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * List集合整个写入缓存,带过期时间
+     */
+    public boolean setListAll(final String key, List list, Long expireTime) {
+        boolean result = false;
+        try {
+            redisTemplate.opsForList().rightPushAll(key, list);
+            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * 获取List集合
+     */
+    public List getList(final String key, long start, long end) {
+        List result = null;
+        result = redisTemplate.opsForList().range(key, start, end);
+        return result;
+    }
+
+    /**
+     * Set集合写入缓存
+     */
+    public boolean setSet(final String key, Set set) {
+        boolean result = false;
+        try {
+            SetOperations<String, Object> setOperations = redisTemplate.opsForSet();
+            for (Object o : set) {
+                setOperations.add(key, o);
+            }
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public boolean setSet(final String key, Object object) {
+        boolean result = false;
+        try {
+            SetOperations<String, Object> setOperations = redisTemplate.opsForSet();
+            setOperations.add(key, object);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * Set集合写入缓存,带过期时间
+     */
+    public boolean setSet(final String key, Object object, Long expireTime) {
+        boolean result = false;
+        try {
+            SetOperations<String, Object> setOperations = redisTemplate.opsForSet();
+            setOperations.add(key, object);
+            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
 
+    public boolean setSet(final String key, Set set, Long expireTime) {
+        boolean result = false;
+        try {
+            SetOperations<String, Object> setOperations = redisTemplate.opsForSet();
+            for (Object o : set) {
+                setOperations.add(key, o);
+            }
+            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * 获取Set集合
+     */
+    public Set getSet(final String key) {
+        Set result = null;
+        result = redisTemplate.opsForSet().members(key);
+        return result;
+    }
+
+    /**
+     * Map集合写入缓存
+     */
+    public boolean setMap(final String key, Map map) {
+        boolean result = false;
+        try {
+            redisTemplate.opsForHash().putAll(key, map);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * Map集合写入缓存,带过期时间
+     */
+    public boolean setMap(final String key, Map map, Long expireTime) {
+        boolean result = false;
+        try {
+            redisTemplate.opsForHash().putAll(key, map);
+            redisTemplate.expire(key, expireTime, TimeUnit.SECONDS);
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    /**
+     * 取出Map集合
+     */
+    public Map getMap(final String key) {
+        Map result = null;
+        result = redisTemplate.opsForHash().entries(key);
+        return result;
+    }
+
+    /**
+     * 获取自增ID
+     */
+    public Long incr(String key) {
+        RedisAtomicLong redisAtomicLong = new RedisAtomicLong(key, redisTemplate.getConnectionFactory());
+        Long increment = redisAtomicLong.getAndIncrement();
+//        if ((null == increment || increment.longValue() == 0) && liveTime > 0) {//初始设置过期时间
+//            redisAtomicLong.expire(liveTime, TimeUnit.SECONDS);
+//        }
+        return increment;
+    }
 }
