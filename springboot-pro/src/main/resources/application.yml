@@ -1,6 +1,9 @@
 #应用端口号
 server:
   port: 8096
+  servlet: # session有效时长为10分钟
+    session:
+      timeout: PT10M
 
 #应用名称
 spring:
@@ -38,7 +41,8 @@ spring:
     host: 192.168.1.6
     port: 6379
     password: 123456
-
+  session: #设置session的存储方式,采用redis存储
+    store-type: redis
 
 # %d-时间格式    %thread-线程  %-5level-从左5字符宽度  %logger{50}-日志50个字符   %msg-信息  %n换行
 #设置在控制台输出的日志格式

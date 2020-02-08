@@ -1,0 +1,19 @@
+/**
+ 创建boot_user表 用于mybatis自动生成表
+ */
+create database 'boot_user'
+use boot_user;
+
+
+create  table users(
+
+id int(10) unsigned not null  auto_increment,
+username varchar(50) not null default '' COMMENT '用户名',
+password varchar(50) not null default '' COMMENT '密码',
+sex tinyint(4) not null default '0' COMMENT '性别 0=女 1=男',
+deleted tinyint(4) unsigned not null default '0' COMMENT '删除标志,默认零不删除,1删除',
+update_time timestamp not null default current_timestamp on update current_timestamp COMMENT '更新时间',
+create_time timestamp not null default current_timestamp COMMENT '创建时间',
+primary key(id)
+) ENGINE = InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET= utf8 COMMENT='用户表';
+set FOREIGN_KEY_CHECKS=1;
