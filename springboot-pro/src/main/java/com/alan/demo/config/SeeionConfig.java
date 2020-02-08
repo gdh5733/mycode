@@ -12,6 +12,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @Description springboot实现拦截器   session登录机制
+ * <p>
+ * 注意:  此配置文件仅用于 自测 分布式session问题
+ * <p>
+ * 会影响到其它接口的路径   自行按照需要放开路径
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
