@@ -136,7 +136,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -177,11 +176,17 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <!--必须放在最后-->
+        <!--必须放在最后 -->
         <dependency>
             <groupId>com.fasterxml.uuid</groupId>
             <artifactId>java-uuid-generator</artifactId>
             <version>3.1.5</version>
+        </dependency>
+
+        <!--redis 解决 分布式session 混乱问题-->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
         </dependency>
 
 
