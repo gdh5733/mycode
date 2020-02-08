@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +29,8 @@ public class UserController {
 
 
     public UserController() {
+
+        //初始化2个用户,用于模拟登录
         User u1 = new User(1, "alan1", "alan1");
 
         userMap.put("alan1", u1);
@@ -36,6 +39,24 @@ public class UserController {
 
         userMap.put("alan2", u2);
 
+    }
+
+
+    @GetMapping(value = "/login")
+    public String login(String username, String password, HttpSession session) {
+        //模拟数据库的查找
+        User user = this.userMap.get(username);
+        if (user != null) {
+            if (!password.equals(user.getPassword())) {
+                return "用户名或密码错误";
+            } else {
+                session.setAttribute(session.getId(), user);
+                log.info("登录成功{}", user);
+            }
+        } else {
+            return "用户名或密码错误";
+        }
+        return "登录成功！！！";
     }
 
 
@@ -50,7 +71,29 @@ public class UserController {
         User user = this.userMap.get(username);
         log.info("通过用户名={},查找出用户{}", username, user);
         return user;
-
     }
 
+
+    /**
+     * 拿当前用户的session
+     *
+     * @return
+     */
+    public String session(HttpSession session) {
+        log.info("当前用户的session={}", session.getId());
+        return session.getId();
+    }
+
+    /**
+     * 退出登录
+     *
+     * @param session
+     * @return
+     */
+    @GetMapping(value = "/logout")
+    public String logout(HttpSession session) {
+        log.info("退出登录session={}", session.getId());
+        session.removeAttribute(session.getId());
+        return "成功退出";
+    }
 }

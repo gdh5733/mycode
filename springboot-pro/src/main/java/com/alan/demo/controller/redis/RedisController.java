@@ -40,7 +40,6 @@ public class RedisController {
 
         return redisUtil.set("user", userEntity);
 
-//        return redisUtil.set(key, value);
     }
 
     @RequestMapping("get")
@@ -48,9 +47,6 @@ public class RedisController {
         return redisUtil.get(key, UserEntity.class);
     }
 
-//    @RequestMapping("expire")
-//    public boolean expire(String key) {
-//        return redisUtil.expire(key, ExpireTime);
-//    }
+
 }
 
