@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="Student" class="com.alan.demo.ioc.xml.xml.Student">
+    <bean id="Student" class="com.alan.demo.utils.xml.xml.Student">
 
         <!--使用有参构造方法注入-->
         <constructor-arg index="0" value="zhangsan"></constructor-arg>
@@ -21,7 +21,7 @@
         </property>
     </bean>
 
-    <!--<bean id="helloService" class="com.alan.demo.ioc.xml.HelloService">-->
+    <!--<bean id="helloService" class="com.alan.demo.utils.xml.HelloService">-->
     <!--<property name="student" ref="Student"></property>-->
     <!--<property name="animal" ref="dog"></property>-->
     <!--</bean>-->
@@ -29,11 +29,11 @@
 
     <!--小型工厂方式-->
 
-    <bean id="dog" class="com.alan.demo.ioc.xml.xml.AnimalFactory" factory-method="getAnimal">
+    <bean id="dog" class="com.alan.demo.utils.xml.xml.AnimalFactory" factory-method="getAnimal">
         <constructor-arg value="dog"></constructor-arg>
     </bean>
 
-    <bean id="cat" class="com.alan.demo.ioc.xml.xml.AnimalFactory" factory-method="getAnimal">
+    <bean id="cat" class="com.alan.demo.utils.xml.xml.AnimalFactory" factory-method="getAnimal">
         <constructor-arg value="cat"></constructor-arg>
     </bean>
 

@@ -1,6 +1,6 @@
-#org.springframework.context.ApplicationContextInitializer = com.alan.demo.initializer.FirstInitializer
+#org.springframework.context.ApplicationContextInitializer = com.alan.demo.utils.initializer.FirstInitializer
 #
-#org.springframework.context.ApplicationListener = com.alan.demo.listener.FirstListener,com.alan.demo.listener.FourthListener
+#org.springframework.context.ApplicationListener = com.alan.demo.utils.listener.FirstListener,com.alan.demo.utils.listener.FourthListener
 
 
-org.springframework.boot.SpringApplicationRunListener =com.alan.demo.listener.HelloSpringApplicationRunListener
+org.springframework.boot.SpringApplicationRunListener =com.alan.demo.utils.listener.HelloSpringApplicationRunListener

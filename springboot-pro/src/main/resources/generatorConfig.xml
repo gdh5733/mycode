@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-
+    <!--注意节点顺序不能变-->
 
     <!-- 引入数据库连接配置 -->
     <properties resource="jdbc.properties"/>

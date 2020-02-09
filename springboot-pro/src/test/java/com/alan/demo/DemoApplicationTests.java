@@ -1,14 +1,12 @@
 package com.alan.demo;
 
-import com.alan.demo.event.WeatherRunListener;
-import com.alan.demo.ioc.xml.HelloService;
-import com.alan.demo.ioc.xml.ann.MyBeanImport;
+import com.alan.demo.utils.xml.HelloService;
+import com.alan.demo.utils.xml.ann.MyBeanImport;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 

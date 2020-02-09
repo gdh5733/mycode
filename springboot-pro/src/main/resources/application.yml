@@ -69,9 +69,9 @@ mybatis:
 #像springboot容器当中注册自定义的系统初始化器
 #context:x'x
 #  initializer:
-#    classes: com.alan.demo.initializer.ThirdInitializer
+#    classes: com.alan.demo.utils.initializer.ThirdInitializer
 #  listener:
-#    classes: com.alan.demo.listener.ThirdListener
+#    classes: com.alan.demo.utils.listener.ThirdListener
 
 
 
