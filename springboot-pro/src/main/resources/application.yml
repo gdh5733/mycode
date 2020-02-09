@@ -11,12 +11,14 @@ spring:
     name: localhost
   #数据库相关配置
   datasource:
-    url: jdbc:mysql://localhost:3306/mybatis
+    url: jdbc:mysql://192.168.1.6:3306/boot_user
     username: root
+    password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     initial-size: 10
     max-active: 30
     min-idle: 10
+
 
 
   # 设置自定义banner
@@ -62,9 +64,10 @@ spring:
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
   type-aliases-package: com.alan.demo.entity
+  config-location:  classpath:/mybatis-config.xml #开启mybatis在控制台的日志
 
 #像springboot容器当中注册自定义的系统初始化器
-#context:
+#context:x'x
 #  initializer:
 #    classes: com.alan.demo.initializer.ThirdInitializer
 #  listener:
