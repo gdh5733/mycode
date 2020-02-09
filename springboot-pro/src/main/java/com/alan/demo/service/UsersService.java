@@ -3,9 +3,6 @@ package com.alan.demo.service;
 
 import com.alan.demo.entity.Users;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public interface UsersService {
 
 
@@ -25,4 +22,5 @@ public interface UsersService {
     public void updateUsers(Users obj);
 
 
+    public void findExample();
 }

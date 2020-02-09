@@ -1,9 +1,9 @@
 package com.alan.demo.controller;
-
 import com.alan.demo.entity.Users;
 import com.alan.demo.service.UsersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,7 +43,24 @@ public class MybatisController {
             //0-1 随机选取一个
             int sex = random.nextInt(2);
             user.setSex((byte) sex);
-            usersService.createUsers(user);
+            this.usersService.createUsers(user);
         }
     }
+
+    @RequestMapping(value = "/u/{id}", method = RequestMethod.GET)
+    public void update(@PathVariable int id) {
+        Users user = new Users();
+        user.setId(id);
+        String temp = "user" + id;
+        user.setUsername(temp);
+        user.setPassword(temp);
+        this.usersService.updateUsers(user);
+    }
+
+
+    @RequestMapping(value = "/f", method = RequestMethod.GET)
+    public void find() {
+        this.usersService.findExample();
+    }
+
 }
