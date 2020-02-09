@@ -48,7 +48,7 @@
 2020/01/16 === [%PARSER_ERROR[thead]] == INFO  == o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] == o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] == Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020/01/16 === [%PARSER_ERROR[thead]] == INFO  == org.springframework.web.servlet.DispatcherServlet == org.springframework.web.servlet.DispatcherServlet == Initializing Servlet 'dispatcherServlet'
 2020/01/16 === [%PARSER_ERROR[thead]] == INFO  == org.springframework.web.servlet.DispatcherServlet == org.springframework.web.servlet.DispatcherServlet == Completed initialization in 8 ms
-2020/01/16 === [%PARSER_ERROR[thead]] == INFO  == com.alan.demo.controller.LogController == com.alan.demo.controller.LogController == 这个是trace日志...
+2020/01/16 === [%PARSER_ERROR[thead]] == INFO  == com.alan.demo.controller.log.LogController == com.alan.demo.controller.log.LogController == 这个是trace日志...
 2020/01/16 === [%PARSER_ERROR[thead]] == INFO  == com.alan.demo.DemoApplication == com.alan.demo.DemoApplication == Starting DemoApplication on DESKTOP-HSP5NUN with PID 44680 (C:\springboot-pro\target\classes started by Dehan.Gao in C:\springboot-pro)
 2020/01/16 === [%PARSER_ERROR[thead]] == INFO  == com.alan.demo.DemoApplication == com.alan.demo.DemoApplication == No active profile set, falling back to default profiles: default
 2020/01/16 === [%PARSER_ERROR[thead]] == INFO  == o.s.d.r.config.RepositoryConfigurationDelegate == o.s.d.r.config.RepositoryConfigurationDelegate == Multiple Spring Data modules found, entering strict repository configuration mode!

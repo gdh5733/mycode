@@ -1,4 +1,4 @@
-package com.alan.demo.controller;
+package com.alan.demo.controller.mybatis;
 import com.alan.demo.entity.Users;
 import com.alan.demo.service.UsersService;
 import lombok.extern.slf4j.Slf4j;

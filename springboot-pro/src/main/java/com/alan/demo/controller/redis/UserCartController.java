@@ -1,4 +1,4 @@
-package com.alan.demo.controller;
+package com.alan.demo.controller.redis;
 
 import com.alan.demo.entity.Cart;
 import com.alan.demo.entity.CartPage;
