@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Description Headers and Fanout 交换机
+ * @Description Headers and Fanout 交换机(广播)
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
@@ -21,18 +21,18 @@ import org.springframework.context.annotation.Configuration;
 public class FanoutConfig {
 
 
-    @Bean(name="Amessage")
+    @Bean(name = "Amessage")
     public Queue AMessage() {
         return new Queue("fanout.A");
     }
 
 
-    @Bean(name="Bmessage")
+    @Bean(name = "Bmessage")
     public Queue BMessage() {
         return new Queue("fanout.B");
     }
 
-    @Bean(name="Cmessage")
+    @Bean(name = "Cmessage")
     public Queue CMessage() {
         return new Queue("fanout.C");
     }
@@ -56,7 +56,6 @@ public class FanoutConfig {
     Binding bindingExchangeC(@Qualifier("Cmessage") Queue CMessage, FanoutExchange fanoutExchange) {
         return BindingBuilder.bind(CMessage).to(fanoutExchange);
     }
-
 
 
 }

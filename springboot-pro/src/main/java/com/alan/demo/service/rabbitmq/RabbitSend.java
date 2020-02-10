@@ -23,11 +23,11 @@ public class RabbitSend {
 
 
     /**
-     * 发送消息的方法
+     * 使用direct交换器的方法发送
      *
      * @param msg 要发送的消息
      */
-    public void send(String msg) {
+    public void directsend(String msg) {
 
         log.info("消息发送之前");
         /**
@@ -37,6 +37,31 @@ public class RabbitSend {
          */
         amqpTemplate.convertAndSend(DirectConfig.QUERY, msg);
         log.info("消息已发送");
+    }
 
+    /**
+     * topic交换机发送
+     *
+     * @param msg 要发送的消息
+     */
+    public void topicsend(String msg) {
+        log.info("消息发送之前");
+        /**
+         * 参数一: 交换器名称
+         * 参数二: 路由键
+         * 参数三: 消息
+         */
+        amqpTemplate.convertAndSend("exchange", "topic.message", "Hello,Rabbit");
+    }
+
+
+    /**
+     * Headers and Fanout 类型的交换机 广播
+     *
+     * @param msg 要发送的消息
+     */
+    public void fanoutsend(String msg) {
+        log.info("发送消息前");
+        amqpTemplate.convertAndSend("fanoutExchange", "", "Hello,Rabbit!");
     }
 }
