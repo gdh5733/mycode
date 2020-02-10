@@ -19,12 +19,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TopicConfig {
 
-    @Bean(name="message")
+    @Bean(name = "message")
     public Queue queueMessage() {
         return new Queue("topic.message");
     }
 
-    @Bean(name="messages")
+    @Bean(name = "messages")
     public Queue queueMessages() {
         return new Queue("topic.messages");
     }
