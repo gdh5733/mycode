@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Random;
 
 /**
- * @Description
+ * @Description Mybatis 采用NoSQL形式  实现增删改查
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0

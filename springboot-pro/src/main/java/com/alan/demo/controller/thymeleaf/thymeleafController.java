@@ -23,7 +23,7 @@ import java.util.Map;
 @RequestMapping("/thy")
 @RestController
 @Slf4j
-public class thyController {
+public class thymeleafController {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 

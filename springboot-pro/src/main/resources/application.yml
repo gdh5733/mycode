@@ -16,8 +16,8 @@ spring:
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
     initial-size: 10
-    max-active: 30
-    min-idle: 10
+    max-active: 30 #最大空闲数
+    min-idle: 10  #最小空闲数
 
 
 
@@ -31,13 +31,16 @@ spring:
     username: guest
     password: guest
 
+#设置交换器的名称
+
+
     #redis配置
   redis:
     lettuce:
       pool:
         max-wait: -1s
-        max-idle: 20
-        min-idle: 10
+        max-idle: 300
+        min-idle: 1
       shutdown-timeout: 5s
     database: 0
     host: 192.168.1.6
@@ -45,6 +48,13 @@ spring:
     password: 123456
   session: #设置session的存储方式,采用redis存储
     store-type: redis
+
+  #热部署配置
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java #重启目录
+
 
 # %d-时间格式    %thread-线程  %-5level-从左5字符宽度  %logger{50}-日志50个字符   %msg-信息  %n换行
 #设置在控制台输出的日志格式
@@ -55,7 +65,6 @@ spring:
 #  pattern:
 #    #    console: "%d{yyyy-MM-dd} [%thead] %-5level %logger{50} %msg%n"
 #    file: "%d{yyyy/MM/dd} === [%thead] == %-5level == %logger{50} == %logger{50} == %msg%n"
-
 
 
 

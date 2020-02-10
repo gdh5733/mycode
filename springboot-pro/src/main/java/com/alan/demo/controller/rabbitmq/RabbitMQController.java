@@ -1,8 +1,9 @@
 package com.alan.demo.controller.rabbitmq;
 
-import com.alan.demo.service.RabbitSend;
+import com.alan.demo.service.rabbitmq.RabbitSend;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Api(description = "rabbit相关接口")
 @RestController
+@Slf4j
 public class RabbitMQController {
 
     @Autowired
@@ -33,4 +35,8 @@ public class RabbitMQController {
         rabbitSend.send(body);
         return "登录成功!";
     }
+
+
+
+
 }

@@ -32,7 +32,7 @@ public class SpringBootDemoController {
 
     @Autowired
     private ScoreService scoreService;
-    int a = 2;
+
 
     /**
      * 测试swagger
@@ -49,7 +49,7 @@ public class SpringBootDemoController {
      * 测试log
      */
     @ApiOperation("测试log方法")
-    @GetMapping("/log")
+    @GetMapping(value = "/log")
     public void log() {
         log.trace("-----trace------");
         log.debug("---debug---");
@@ -65,7 +65,7 @@ public class SpringBootDemoController {
      * @return
      */
     @ApiOperation("测试异步")
-    @RequestMapping("/sync")
+    @RequestMapping(value = "/sync", method = RequestMethod.GET)
     public ResponseEntity<TInfo> createUser() {
         log.info("--------------注册用户--------------");
         this.scoreService.addScore();
