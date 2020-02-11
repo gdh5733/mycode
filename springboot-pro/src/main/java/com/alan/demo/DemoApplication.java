@@ -1,4 +1,5 @@
 package com.alan.demo;
+
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,8 +11,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @EnableRabbit
 public class DemoApplication {
-
-
 
     public static void main(String[] args) throws InterruptedException {
 

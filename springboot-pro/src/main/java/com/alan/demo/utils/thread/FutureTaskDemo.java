@@ -1,5 +1,7 @@
 package com.alan.demo.utils.thread;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
@@ -11,14 +13,15 @@ import java.util.concurrent.FutureTask;
  * @Date 2019/12/30
  */
 
+@Slf4j
 public class FutureTaskDemo {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         FutureTask task = new FutureTask(new MyCallable());
         new Thread(task).start();
         if (!task.isDone()) {
-            System.out.println("task has not finished,please wait!");
+            log.info("task has not finished,please wait!");
         }
-        System.out.println("task return: " + task.get());
+        log.info("task return:{}", task.get());
     }
 }
