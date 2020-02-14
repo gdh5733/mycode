@@ -33,7 +33,6 @@ public class SpringBootDemoController {
     @Autowired
     private ScoreService scoreService;
 
-
     /**
      * 测试swagger
      *
@@ -83,8 +82,5 @@ public class SpringBootDemoController {
         log.info("--------------注册用户--------------");
         this.scoreService.addScor2();
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("ok");
-
     }
-
-
 }
