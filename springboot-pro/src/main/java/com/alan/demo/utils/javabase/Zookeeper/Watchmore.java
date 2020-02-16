@@ -1,7 +1,6 @@
 package com.alan.demo.utils.javabase.Zookeeper;
 
 import lombok.Data;
-import org.apache.log4j.Logger;
 import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 
