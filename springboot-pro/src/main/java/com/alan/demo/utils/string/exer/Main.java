@@ -45,8 +45,10 @@ public class Main {
         for (int i = 0; i < num; i++) {
             if (strs[0].charAt(i) == strs[len - 1].charAt(i)) {
                 res.append(strs[0].charAt(i));
-            } else
+            } else {
                 break;
+            }
+
         }
 
         return res.toString();

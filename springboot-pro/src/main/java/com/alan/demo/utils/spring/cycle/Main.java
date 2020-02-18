@@ -3,7 +3,7 @@ package com.alan.demo.utils.spring.cycle;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * @Description
+ * @Description 测试springbean的生命周期
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0

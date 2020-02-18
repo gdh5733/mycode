@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Description 模拟spring源码的源码编写方式
+ * @Description 模拟spring源码的源码编写方式练习
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
