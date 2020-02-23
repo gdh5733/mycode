@@ -24,7 +24,7 @@ package com.alan.demo.utils.jvm;
  * <p> 5.方法区
  * 供各线程共享的运行时内存区域,它存储了每一个类的结构信息
  * 例如运行时常量池(Runtime Constant Pool) 字段和方法数据 构造函数和普通方法的字节码内容。
- * 上面讲的时规范,在不同虚拟机里头实现是不一样的,最典型的就是永久代(PermGen space)和元空间(Metaspace)
+ * 上面讲的是规范,在不同虚拟机里头实现是不一样的,最典型的就是永久代(PermGen space)和元空间(Metaspace)
  * <p>
  * 注: 实例变量存在堆内存中,和方法区无关
  * 5.1 它存储了每一个类的结构信息
@@ -79,6 +79,19 @@ package com.alan.demo.utils.jvm;
  * 触发GC的时候会扫描Eden区和From区域,对这两个区域进行回收,经过这次回收后还存活的对象,则直接复制到To区域
  * (如果有对象的年龄已经达到了老年的标准,则赋值到老年代区),同时把这些对象的年龄+1
  *
+ * 2：清空eden,SurvivorFrom
+ * 然后,清空Eden和SurvivorFrom中的对象,也即复制之后有交换,谁空谁是to
+ *
+ * 3:SurvivorTo和SurvivorFrom互换
+ * 最后,SurvivorTo和SurvivorFrom互换,原SurvivorTo成为下一次GC时的SurvivorFrom区。部分对象
+ * 会在From和To区域中复制来复制去,如此交换15次(由JVM参数MaxTenuringThreashold决定,这个参数默认是15),
+ * 最终如果还是存活,就存入到老年代
+ *
+ *
+ *堆内存调优简介01
+ * -Xms  设置初始分配大小,默认为物理内存的 "1/64"
+ * -Xmx  最大分配的内存,默认为物理内存的 "1/4"
+ * -XX: +PrintGCDetails 输出详细的GC处理日志
  *
  * @Author gaodehan
  * @Version V1.0.0
@@ -90,12 +103,21 @@ public class jvmNote {
 
     public static void main(String[] args) {
 
-        try {
-            System.out.println("sdfas");
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+      //返回本机的核数
+      int count = Runtime.getRuntime().availableProcessors();
+      System.out.println("CPU的核数为: "+count);
 
-        }
+      //返回Java虚拟机试图使用的最大内存量  1/4
+      long maxMemory = Runtime.getRuntime().maxMemory();
+
+      //返回Java虚拟机中的内存总量
+      long totalMemory = Runtime.getRuntime().totalMemory();
+
+      System.out.println("MAX_MEMORY="+maxMemory+" (字节) "+(maxMemory/(double)1024/1024)+"MB");
+      System.out.println("TOTAL_MEMORY="+totalMemory+" (字节) "+(totalMemory/(double)1024/1024)+"MB");
+
+      //相当于像堆内存中申请了 40M的内存空间
+      byte [] val = new byte[40*1024*1024];
+
     }
 }
