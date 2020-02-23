@@ -93,6 +93,10 @@ package com.alan.demo.utils.jvm;
  * -Xmx  最大分配的内存,默认为物理内存的 "1/4"
  * -XX: +PrintGCDetails 输出详细的GC处理日志
  *
+ *
+ * 查看GC日志规律
+ * GC前内存占用情况->GC后内存占用情况(该区内存总大小)
+ *
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
