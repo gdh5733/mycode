@@ -32,21 +32,52 @@ package com.alan.demo.utils.jvm;
  *
  *
  * <p> 6.Stack
-
+ * <p>
  * 栈管运行,堆管存储
- *
+ * <p>
  * 栈也叫栈内存,主管Java程序的运行,是在线程创建时创建,它的生命期是跟随线程的生命期，
  * 线程结束栈内存也就释放,对于栈来说不存在垃圾回收问题,只要线程一结束该栈就over,生命周期和线程
  * 一致,是线程私有的。8种基本类型的变量+对象的引用变量+实例方法都是在函数的栈内存中分配。
- *
+ * <p>
  * 6.1 栈存储什么?
  * 栈帧中主要保存3 类数据:
- *
+ * <p>
  * 本地变量(Local Variables)： 输入参数和输出参数以及方法内的变量;
+ * <p>
+ * 栈操作(Operand Stack) :记录出栈,入栈的操作;
+ * <p>
+ * 栈帧数据(Frame Data): 包括类文件,方法等等。
+ * <p>
+ * 6.2 栈保存那些东东?
+ * 8中基本类型的变量+实例方法都是在函数的栈内存中分配。
+ * <p>
+ * 6.3 Exception in thread "main" java.lang.stackOverflowError
  *
- *  栈操作(Operand Stack) :记录出栈,入栈的操作;
  *
- *  栈帧数据(Frame Data): 包括类文件,方法等等。
+ * <p>堆
+ * Eden满了,开启
+ * GC = YGC = 轻GC
+
+ * Eden基本全部清空
+
+ * S0 = from
+ * S1 = to
+
+ * from区和to区,他们的位置和名分,不是固定的,每次GC后会交换
+ * GC之后有交换,谁空谁是to
+
+ * Old养老区,满了,开启
+ * Full GC = FGC
+
+ * Full GC 多次,发现养老区没办法腾出来
+
+ * OOM
+
+ * MinorGC的过程(复制->清空->互换)
+ * 1：eden,SurvivorFrom 复制到SurvivorTo,年龄+1
+ * 首先,当Eden区满的时候会触发第一次GC,把还活着的对象拷贝到SurvivorFrom区,当Eden区再次
+ * 触发GC的时候会扫描Eden区和From区域,对这两个区域进行回收,经过这次回收后还存活的对象,则直接复制到To区域
+ * (如果有对象的年龄已经达到了老年的标准,则赋值到老年代区),同时把这些对象的年龄+1
  *
  *
  * @Author gaodehan
@@ -63,7 +94,7 @@ public class jvmNote {
             System.out.println("sdfas");
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
 
         }
     }
