@@ -1,7 +1,8 @@
 package com.alan.demo.utils.jvm;
 
 /**
- * @Description
+ * @Description classloader
+ *
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
@@ -21,6 +22,7 @@ public class ClassLoaderTest {
         ClassLoader extClassLoader = systemClassLoader.getParent();
         System.out.println(extClassLoader.getParent());
 
+        //获取其上层： bootstrap扩展器
         ClassLoader bootstrapClassLoader = extClassLoader.getParent();
         System.out.println(bootstrapClassLoader);//null
 
