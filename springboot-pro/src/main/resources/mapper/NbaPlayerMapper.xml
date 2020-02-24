@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alan.demo.mapper.NbaPlayerMapper">
+  <resultMap id="BaseResultMap" type="com.alan.demo.entity.NbaPlayer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="countryEn" jdbcType="VARCHAR" property="countryen" />
+    <result column="teamName" jdbcType="VARCHAR" property="teamname" />
+    <result column="birthDay" jdbcType="BIGINT" property="birthday" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="teamCityEn" jdbcType="VARCHAR" property="teamcityen" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="displayAffiliation" jdbcType="VARCHAR" property="displayaffiliation" />
+    <result column="displayName" jdbcType="VARCHAR" property="displayname" />
+    <result column="schoolType" jdbcType="VARCHAR" property="schooltype" />
+    <result column="teamConference" jdbcType="VARCHAR" property="teamconference" />
+    <result column="teamConferenceEn" jdbcType="VARCHAR" property="teamconferenceen" />
+    <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <result column="teamCity" jdbcType="VARCHAR" property="teamcity" />
+    <result column="playYear" jdbcType="INTEGER" property="playyear" />
+    <result column="jerseyNo" jdbcType="VARCHAR" property="jerseyno" />
+    <result column="teamNameEn" jdbcType="VARCHAR" property="teamnameen" />
+    <result column="draft" jdbcType="INTEGER" property="draft" />
+    <result column="displayNameEn" jdbcType="VARCHAR" property="displaynameen" />
+    <result column="birthDayStr" jdbcType="VARCHAR" property="birthdaystr" />
+    <result column="heightValue" jdbcType="DECIMAL" property="heightvalue" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="playerId" jdbcType="VARCHAR" property="playerid" />
+  </resultMap>
+</mapper>
