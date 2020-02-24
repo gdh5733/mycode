@@ -11,15 +11,18 @@ spring:
     name: localhost
   #数据库相关配置
   datasource:
-    url: jdbc:mysql://192.168.1.6:3306/boot_user
+    url: jdbc:mysql://192.168.1.6:3307/boot_user
     username: root
     password: 123456
-    driver-class-name: com.mysql.jdbc.Driver
-    initial-size: 10
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initial-size: 10 #连接池初始化大小
     max-active: 30 #最大空闲数
     min-idle: 10  #最小空闲数
 
-
+#es 配置
+elasticsearch:
+  host: 192.168.1.6
+  port: 9200
 
   # 设置自定义banner
   banner:
@@ -31,7 +34,7 @@ spring:
     username: guest
     password: guest
 
-#设置交换器的名称
+    #设置交换器的名称
 
 
     #redis配置

@@ -18,9 +18,9 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
-        <!--布局功能的支持程序 thymeleaf3主程序 layout2以上版本-->
-        <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+<!--        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>-->
+<!--        &lt;!&ndash;布局功能的支持程序 thymeleaf3主程序 layout2以上版本&ndash;&gt;-->
+<!--        <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>-->
     </properties>
 
     <dependencies>
@@ -43,7 +43,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.39</version>
+            <version>8.0.19</version>
         </dependency>
 
 
@@ -202,15 +202,10 @@
 
 
         <!-- thymeleaf -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-thymeleaf</artifactId>
-            <!--            <groupId>org.thymeleaf</groupId>-->
-            <!--            <artifactId>thymeleaf</artifactId>-->
-            <!--            <version>3.0.11.RELEASE</version>-->
-        </dependency>
-
-
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+<!--        </dependency>-->
 
 
         <!--必须放在最后 -->
@@ -256,6 +251,12 @@
             <artifactId>cache-api</artifactId>
         </dependency>
 
+        <!--可以在配置类中使用 @ConfigurationProperties-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -289,7 +290,7 @@
                     <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
-                        <version>5.1.38</version>
+                        <version>8.0.19</version>
                     </dependency>
 
                     <!-- tk mapper -->
