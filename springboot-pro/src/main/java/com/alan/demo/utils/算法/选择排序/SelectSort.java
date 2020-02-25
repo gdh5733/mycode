@@ -14,7 +14,6 @@ public class SelectSort {
 
     public static void main(String[] args) {
 
-
         int[] arr = {101, 34, 119, 1, -1, 90, 123};
         System.out.println("排序前");
         System.out.println(Arrays.toString(arr));
@@ -23,12 +22,12 @@ public class SelectSort {
         System.out.println("排序后");
         System.out.println(Arrays.toString(arr));
 
-
     }
 
 
     /**
      * 选择排序
+     * 注意推导过程
      *
      * @param arr
      */
