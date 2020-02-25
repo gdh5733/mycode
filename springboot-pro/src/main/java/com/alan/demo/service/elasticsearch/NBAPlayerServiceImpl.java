@@ -142,6 +142,15 @@ public class NBAPlayerServiceImpl implements NBAPlayerService {
         return true;
     }
 
+
+    /**
+     * 通过匹配查询
+     *
+     * @param key   要查询的字段
+     * @param value 要查询字段的值
+     * @return
+     * @throws IOException
+     */
     @Override
     public List<NbaPlayer> searchMatch(String key, String value) throws IOException {
         SearchRequest searchRequest = new SearchRequest(NBA_INDEX);
