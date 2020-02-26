@@ -1,4 +1,5 @@
 package com.alan.demo.utils;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -11,7 +12,6 @@ import java.util.Date;
  */
 
 public class DateUtils {
-
 
     /**
      * @param date 当前时间

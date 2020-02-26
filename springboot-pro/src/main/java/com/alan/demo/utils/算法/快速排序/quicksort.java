@@ -1,5 +1,7 @@
 package com.alan.demo.utils.算法.快速排序;
+
 import org.apache.commons.lang3.ArrayUtils;
+
 import java.util.*;
 
 /**
@@ -33,23 +35,12 @@ public class quicksort {
 
         String val = searnoRepeat1();
         System.out.println("输出值为:" + "   " + val);
-    }
 
-
-    public static void quickSort(int[] arr, int startIndex, int endindex) {
-        // 递归结束条件：startIndex大于或等于endIndex时
-        if (startIndex >= endindex) {
-            return;
-        }
-        //得到基本元素的位置
-        int point = sortMethod(arr, startIndex, endindex);
-
-        // 根据基准元素，分成两部分进行递归排序
-        quickSort(arr, startIndex, point - 1);
-        quickSort(arr, point + 1, endindex);
+        int[] arr = {-9, 78, 0, 23, -567, 70};
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println("arr=" + Arrays.toString(arr));
 
     }
-
 
     /**
      * 快速排序具体方法
@@ -235,6 +226,62 @@ public class quicksort {
             }
             System.out.println("break ----j的值为:" + j);
         }
+
+    }
+
+
+    /**
+     * 快速排序
+     *
+     * @param arr
+     * @param left  相同于索引0
+     * @param right 相当于索引arr.length -1
+     */
+    public static void quickSort(int[] arr, int left, int right) {
+
+        //左小标
+        int l = left;
+
+        //右下标
+        int r = right;
+
+
+        //pivot 中轴值
+        int pivot = arr[(left + right) / 2];
+
+        //临时变量,作为交换时使用
+        int temp = 0;
+
+        //while循环的目的是让比pivot 值小放左边
+        //比pivot 值大放到右边
+        while (l < r) {
+            //在pivot的左边一直找,找到大于等于pivot值,才退出
+            while (arr[l] < pivot) {
+                l += 1;
+            }
+
+            //在pivot的右边一直找,找到小于等于pivot值,才退出
+            while (arr[r] > pivot) {
+                r -= 1;
+            }
+        }
+
+        //如果 1 == r,必须l++,r--,否则为出现栈溢出
+        if (l == r) {
+            l += 1;
+            r -= 1;
+        }
+
+        //向左递归
+        if (left < r) {
+            quickSort(arr, left, r);
+        }
+
+        //向右递归
+        if (right > l) {
+            quickSort(arr, l, right);
+        }
+
 
     }
 }
