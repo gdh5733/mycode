@@ -5,4 +5,5 @@ import com.alan.demo.tk.MyMapper;
 
 
 public interface UsersMapper extends MyMapper<Users> {
+
 }

@@ -257,6 +257,17 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
 
+
+
+        <!-- 导出excle poi -->
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

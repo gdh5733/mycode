@@ -10,10 +10,11 @@ package com.alan.demo.utils.string;
 
 public class StringTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        test1();
 //        test2();
         test3();
+        Thread.sleep(Integer.MAX_VALUE);
     }
 
     /**
@@ -24,13 +25,14 @@ public class StringTest {
      * 3.String内部定义了final char[] value 用于存储字符串数据
      * 4.String 代表不可变的字符序列  简称: 不可变性
      */
-    public static void test1() {
+    public static void test1() throws InterruptedException {
         String s1 = "abc";//字面量的定义方式
         String s2 = "abc";
         s1 = "hello";
 
         System.out.println(s1);
         System.out.println(s2);
+
     }
 
     /**
