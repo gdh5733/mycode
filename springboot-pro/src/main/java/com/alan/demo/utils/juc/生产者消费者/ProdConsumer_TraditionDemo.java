@@ -1,4 +1,4 @@
-package com.alan.demo.utils.juc;
+package com.alan.demo.utils.juc.生产者消费者;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
@@ -89,9 +89,9 @@ class ShareData {
 public class ProdConsumer_TraditionDemo {
 
     //核心线程数
-    private static final int CORE_POOL_SIZE = 1;
+    private static final int CORE_POOL_SIZE = 2;
     //最大线程数
-    private static final int MAX_POOL_SIZE = 1;
+    private static final int MAX_POOL_SIZE = 2;
 
     //线程空闲时间
     private static final Long KEEP_ALIVE_TIME = 1L;
@@ -123,7 +123,6 @@ public class ProdConsumer_TraditionDemo {
             }
         });
 
-        executor.shutdown();
 
 
         executor.execute(() -> {

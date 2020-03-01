@@ -52,11 +52,11 @@ public class SynchronousQueueDemo {
             try {
 
                 TimeUnit.SECONDS.sleep(5);
-                System.out.println(blockingQueue.take());
+                System.out.println("取出: " + blockingQueue.take());
                 TimeUnit.SECONDS.sleep(5);
-                System.out.println(blockingQueue.take());
+                System.out.println("取出: " + blockingQueue.take());
                 TimeUnit.SECONDS.sleep(5);
-                System.out.println(blockingQueue.take());
+                System.out.println("取出: " + blockingQueue.take());
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
