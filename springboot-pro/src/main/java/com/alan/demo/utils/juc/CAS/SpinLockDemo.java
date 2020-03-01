@@ -16,6 +16,8 @@ public class SpinLockDemo {
     //原子引用线程
     AtomicReference<Thread> atomicReference = new AtomicReference<>();
 
+
+    //上锁
     public void myLock() {
         Thread thread = Thread.currentThread();
         System.out.println(Thread.currentThread().getName() + "\t come in O(n_n)O");
@@ -25,6 +27,7 @@ public class SpinLockDemo {
         }
     }
 
+    //解锁
     public void myUnlock() {
         Thread thread = Thread.currentThread();
         atomicReference.compareAndSet(thread, null);
