@@ -19,8 +19,8 @@ public class CASDemo {
 
         atomicInteger.getAndIncrement();
 
-        System.out.println(atomicInteger.compareAndSet(5, 2019) + "\t current data" + atomicInteger.get());
-        System.out.println(atomicInteger.compareAndSet(6, 2020) + "\t current data" + atomicInteger.get());
+        System.out.println(atomicInteger.compareAndSet(5, 2019) + "\t current data " + atomicInteger.get());
+        System.out.println(atomicInteger.compareAndSet(6, 2020) + "\t current data " + atomicInteger.get());
 
 
     }

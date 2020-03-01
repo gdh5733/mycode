@@ -1,4 +1,6 @@
 package com.alan.demo.utils.juc.AQS;
+import sun.misc.Unsafe;
+
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -43,6 +45,11 @@ public class FIFOMutex {
     public void unlock() {
         locked.set(false);
         LockSupport.unpark(waiters.peek());
+    }
+
+
+    public static void main(String[] args) {
+
     }
 
 }
