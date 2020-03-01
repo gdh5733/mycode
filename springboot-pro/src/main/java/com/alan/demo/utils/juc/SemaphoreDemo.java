@@ -1,4 +1,4 @@
-package com.alan.demo.utils.juc.AQS;
+package com.alan.demo.utils.juc;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -45,8 +45,8 @@ public class SemaphoreDemo {
 
 
     public static void main(String[] args) {
-        //模拟三个停车位  参数33 相当于拥有的许可证
-        Semaphore semaphore = new Semaphore(33);
+        //模拟三个停车位  参数3 相当于拥有的许可证
+        Semaphore semaphore = new Semaphore(3);
 
         //模拟六部汽车
         for (int i = 0; i <= 6; i++) {
