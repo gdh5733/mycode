@@ -67,6 +67,7 @@ class MyRescource {
                 FLAG = false;
                 System.out.println(Thread.currentThread().getName() + "\t 超过两秒钟没有取出蛋糕,消费退出");
             }
+            TimeUnit.SECONDS.sleep(1);
             System.out.println(Thread.currentThread().getName() + "\t 消费队列蛋糕" + result + "成功");
         }
 
@@ -94,6 +95,8 @@ public class ProdConsumer_BlockQueueDemo {
             }
         }, "Prod").start();
 
+
+
         new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "\t 消费线程启动");
             try {
@@ -109,6 +112,7 @@ public class ProdConsumer_BlockQueueDemo {
             System.out.println();
             System.out.println();
             System.out.println();
+            System.out.println("5秒钟时间到,大老板main线程叫停,活动叫停");
             myRescource.stop();
         } catch (InterruptedException e) {
             e.printStackTrace();

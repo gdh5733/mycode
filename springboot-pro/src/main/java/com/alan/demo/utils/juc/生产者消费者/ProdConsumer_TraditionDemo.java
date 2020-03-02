@@ -124,7 +124,6 @@ public class ProdConsumer_TraditionDemo {
         });
 
 
-
         executor.execute(() -> {
             for (int i = 0; i < 5; i++) {
                 try {
@@ -135,6 +134,14 @@ public class ProdConsumer_TraditionDemo {
             }
         });
         executor.shutdown();
+
+
+        try {
+            TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
+
 
 }

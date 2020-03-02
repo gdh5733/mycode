@@ -1,4 +1,4 @@
-package com.alan.demo.utils.juc;
+package com.alan.demo.utils.juc.生产者消费者;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -32,9 +32,8 @@ class ShareResource {
      * 打印五次
      */
     public void print5() {
-
+        lock.lock();
         try {
-            lock.lock();
 
             //判断
             while (number != 1) {
@@ -57,10 +56,8 @@ class ShareResource {
      * 打印十次
      */
     public void print10() {
-
+        lock.lock();
         try {
-            lock.lock();
-
             //判断
             while (number != 2) {
                 c2.await();
@@ -82,10 +79,8 @@ class ShareResource {
      * 打印十五次
      */
     public void print15() {
-
+        lock.lock();
         try {
-            lock.lock();
-
             //判断
             while (number != 3) {
                 c3.await();

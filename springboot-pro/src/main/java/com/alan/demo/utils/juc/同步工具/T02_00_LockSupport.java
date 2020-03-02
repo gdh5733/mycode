@@ -1,4 +1,4 @@
-package com.alan.demo.utils.juc;
+package com.alan.demo.utils.juc.同步工具;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -108,9 +108,9 @@ public class T02_00_LockSupport {
         Condition conditionT2 = lock.newCondition();
 
         new Thread(() -> {
-
+            lock.lock();
             try {
-                lock.lock();
+
                 for (char c : aT) {
                     System.out.println(c);
                     conditionT2.signal();
@@ -127,8 +127,9 @@ public class T02_00_LockSupport {
 
 
         new Thread(() -> {
+            lock.lock();
             try {
-                lock.lock();
+
                 for (char c : aC) {
                     System.out.println(c);
                     conditionT1.signal();
