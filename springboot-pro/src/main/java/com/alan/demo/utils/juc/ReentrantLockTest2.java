@@ -32,8 +32,8 @@ public class ReentrantLockTest2 {
     public static void test() {
         //循环两次加锁和放锁
         for (int i = 0; i < 2; i++) {
+            lock.lock();
             try {
-                lock.lock();
                 System.out.println(Thread.currentThread().getName() + "获取了锁");
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
