@@ -120,8 +120,6 @@ public class CookieCartController {
         Cookie cookie = new Cookie("cartId", null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-
     }
-
 
 }
