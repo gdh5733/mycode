@@ -1,4 +1,4 @@
-package com.alan.demo.controller.redis;
+package com.alan.demo.controller.redis.Hash;
 
 import com.alan.demo.entity.UserEntity;
 import com.alan.demo.utils.RedisUtils;
