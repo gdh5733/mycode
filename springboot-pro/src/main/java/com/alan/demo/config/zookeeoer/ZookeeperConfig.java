@@ -1,4 +1,4 @@
-package com.alan.demo.config;
+package com.alan.demo.config.zookeeoer;
 
 import org.springframework.context.annotation.Configuration;
 
