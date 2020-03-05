@@ -18,6 +18,12 @@ spring:
     initial-size: 10 #连接池初始化大小
     max-active: 30 #最大空闲数
     min-idle: 10  #最小空闲数
+  rabbitmq:
+    host: 192.168.1.6
+    port: 5672
+    username: guest
+    password: guest
+
 
 #es 配置
 elasticsearch:
@@ -27,17 +33,9 @@ elasticsearch:
   # 设置自定义banner
   banner:
     location: banner.txt
-  #rabbit配置
-  rabbitmq:
-    host: 192.168.1.6   #虚拟机ip
-    port: 5672        # docker 容器映射本地端口号
-    username: guest
-    password: guest
-
-    #设置交换器的名称
 
 
-    #redis配置
+  #redis配置
   redis:
     lettuce:
       pool:
