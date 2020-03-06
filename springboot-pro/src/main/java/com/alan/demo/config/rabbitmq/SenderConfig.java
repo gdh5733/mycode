@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Description 创建队列
+ * @Description 创建队列 (简单模式)
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0

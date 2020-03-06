@@ -17,18 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 
-@Api(description = "rabbitmq接口")
+@Api(description = "rabbitmq 简单队列接口")
 @RestController
 @Slf4j
 public class MQController {
 
-    @Autowired
-    Send send;
 
-    @RequestMapping(value = "/demo1", method = RequestMethod.GET)
-    public void demo1() {
-
-        this.send.send();
-    }
 
 }

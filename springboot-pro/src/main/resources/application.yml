@@ -25,7 +25,11 @@ spring:
     password: guest
 
 
-#es 配置
+
+  main:
+    allow-bean-definition-overriding: true
+
+
 elasticsearch:
   host: 192.168.1.6
   port: 9200
