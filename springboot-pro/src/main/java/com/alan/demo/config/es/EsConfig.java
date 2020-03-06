@@ -1,5 +1,4 @@
 package com.alan.demo.config.es;
-
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.http.HttpHost;
