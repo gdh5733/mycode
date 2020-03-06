@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * @Description 观察者模式 (个人理解就是 一个方法有变化了  其他的方法跟着变)
- * 注意回调函数 callback   钩子函数其实本质上也是 观察者
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
@@ -88,7 +87,6 @@ class Mom implements Observer {
 }
 
 public class Main {
-
 
     public static void main(String[] args) {
 
