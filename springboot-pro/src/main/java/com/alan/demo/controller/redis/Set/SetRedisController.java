@@ -136,7 +136,6 @@ public class SetRedisController {
         //随机获取集合中指定个数的元素（不重复）
         System.out.println(redisTemplate.opsForSet().distinctRandomMembers("games", 10));
 
-
     }
 
     /**
