@@ -1,7 +1,7 @@
 package com.alan.demo.utils.spring.Entity;
 
 /**
- * @Description bean的生命周期实验
+ * @Description bean的生命周期验证 实体
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0

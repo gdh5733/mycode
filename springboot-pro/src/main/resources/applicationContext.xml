@@ -59,6 +59,17 @@
         <property name="sex" value="男"></property>
     </bean>
 
+    <!--验证bean的自动装配-->
+    <bean id="dept" class="com.alan.demo.utils.spring.Entity.Dept" autowire="byName">
+        <property name="eid" value="001"></property>
+        <property name="name" value="小李"></property>
+    </bean>
+
+    <bean id="car" class="com.alan.demo.utils.spring.Entity.Car">
+        <property name="cid" value="002"></property>
+        <property name="band" value="宝马"></property>
+    </bean>
+
 
     <!--配置自动扫描的包-->
     <!--基于注解的情况实现AOP  利用ASpectJ-->

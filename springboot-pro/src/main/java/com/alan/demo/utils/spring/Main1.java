@@ -1,14 +1,14 @@
 package com.alan.demo.utils.spring;
 
+import com.alan.demo.utils.spring.Entity.Dept;
 import com.alan.demo.utils.spring.Entity.Person;
 import com.alan.demo.utils.spring.Entity.Student;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Description 测试IOC
+ * @Description 测试IOC  生命周期 注入方式  自动装配 都从这个主类学习 查看相应的配置文件即可
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
@@ -34,6 +34,11 @@ public class Main1 {
         Object o = ac.getBean("factory");
         System.out.println("输出的值为: " + o);
 
+
+        //验证bean的自动装配
+        Dept dept = (Dept) ac.getBean("dept");
+        System.out.println("产生自动装配的结果: " + dept);
+
         //让主线程停一会
         try {
             TimeUnit.SECONDS.sleep(3);
@@ -41,16 +46,10 @@ public class Main1 {
             e.printStackTrace();
         }
 
-
         //验证bean的生命周期
         Person person = (Person) ac.getBean("person");
         System.out.println(person);
         ac.close();
-
-
-
-
-
 
 
         //bean的作用域  单例 多例 ..
