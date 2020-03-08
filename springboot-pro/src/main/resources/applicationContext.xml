@@ -5,11 +5,37 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--Set get方法注入-->
+    <bean id="test" class="com.alan.demo.utils.spring.Entity.Student">
+        <property name="age" value="123"></property>
+        <property name="name" value="alan"></property>
+    </bean>
+
+    <!--构造方法注入-->
+    <bean id="test1" class="com.alan.demo.utils.spring.Entity.Student">
+        <constructor-arg value="456"></constructor-arg>
+        <constructor-arg value="jack"></constructor-arg>
+        <constructor-arg ref="teacher"></constructor-arg>
+    </bean>
+
+    <!--处理ref 的引用 和 处理list集合-->
+    <bean id="teacher" class="com.alan.demo.utils.spring.Entity.Teacher">
+        <property name="name" value="小张老师"></property>
+        <property name="cls">
+            <list>
+                <value>A</value>
+                <value>B</value>
+                <value>C</value>
+            </list>
+        </property>
+    </bean>
+
+
     <!--配置自动扫描的包-->
     <!--基于注解的情况实现AOP  利用ASpectJ-->
-    <context:component-scan base-package="com.alan.demo.utils.spring.AOP3"></context:component-scan>
+    <!--    <context:component-scan base-package="com.alan.demo.utils.spring.AOP3"></context:component-scan>-->
 
-    <!-- 使Aspject 注解起作用: 自动为匹配的类生成代理对象-->
-    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    <!--    &lt;!&ndash; 使Aspject 注解起作用: 自动为匹配的类生成代理对象&ndash;&gt;-->
+    <!--    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
 
 </beans>
