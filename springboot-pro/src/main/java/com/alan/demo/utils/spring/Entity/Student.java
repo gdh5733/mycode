@@ -24,8 +24,7 @@ public class Student {
 
     public Teacher teacher;
 
-    public Student() {
-    }
+    public Student() {}
 
     public Student(String name, String age, Teacher teacher) {
         this.name = name;

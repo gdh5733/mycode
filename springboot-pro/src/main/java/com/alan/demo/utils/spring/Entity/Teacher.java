@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description
@@ -19,9 +20,14 @@ import java.util.List;
 @ToString
 public class Teacher {
 
+    //老师的名字
     private String name;
 
+    //老师教的班级
     private List<String> cls;
+
+    //老师的上级领导
+    private Map<String, String> bossMap;
 
     public Teacher() {
     }

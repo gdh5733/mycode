@@ -18,7 +18,7 @@
         <constructor-arg ref="teacher"></constructor-arg>
     </bean>
 
-    <!--处理ref 的引用 和 处理list集合-->
+    <!--处理ref 的引用 和 处理list map 集合-->
     <bean id="teacher" class="com.alan.demo.utils.spring.Entity.Teacher">
         <property name="name" value="小张老师"></property>
         <property name="cls">
@@ -27,6 +27,26 @@
                 <value>B</value>
                 <value>C</value>
             </list>
+        </property>
+        <property name="bossMap">
+            <map>
+                <!--一个entry代表一个键值对-->
+                <entry>
+                    <key>
+                        <value>10001</value>
+                    </key>
+                    <value>老师的领导小王</value>
+                </entry>
+
+                <entry>
+                    <key>
+                        <value>10002</value>
+                    </key>
+                    <value>老师的领导小高</value>
+                </entry>
+
+
+            </map>
         </property>
     </bean>
 
