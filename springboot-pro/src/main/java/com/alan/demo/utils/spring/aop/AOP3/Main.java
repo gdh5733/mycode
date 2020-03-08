@@ -1,5 +1,4 @@
-package com.alan.demo.utils.spring.AOP3;
-import org.springframework.context.ApplicationContext;
+package com.alan.demo.utils.spring.aop.AOP3;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -13,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         ArithmeticCalculator arithmeticCalculator = (ArithmeticCalculator) context.getBean("ArithmeticCalculatorImpl");
 

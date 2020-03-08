@@ -1,4 +1,4 @@
-package com.alan.demo.utils.spring.AOP3;
+package com.alan.demo.utils.spring.aop.AOP3;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -20,7 +20,7 @@ import java.util.Arrays;
 public class LoggingAspect {
 
     /**
-     * com.alan.demo.utils.spring.AOP3.ArithmeticCalculator  接口的每一个实现类的每一个方法开始之前执行一段代码
+     * ArithmeticCalculator  接口的每一个实现类的每一个方法开始之前执行一段代码
      */
 
 
@@ -29,7 +29,7 @@ public class LoggingAspect {
      *
      * @param joinPoint
      */
-    @Before("execution(public int com.alan.demo.utils.spring.AOP3.ArithmeticCalculator.*(..))")
+    @Before("execution(public int com.alan.demo.utils.spring.aop.AOP3.ArithmeticCalculator.*(..))")
     public void beforeMethod(JoinPoint joinPoint) {
         String name = joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
@@ -42,7 +42,7 @@ public class LoggingAspect {
      *
      * @param joinPoint
      */
-    @After("execution(public int com.alan.demo.utils.spring.AOP3.ArithmeticCalculator.*(..))")
+    @After("execution(public int com.alan.demo.utils.spring.aop.AOP3.ArithmeticCalculator.*(..))")
     public void AfterMethod(JoinPoint joinPoint) {
         String name = joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
@@ -55,7 +55,7 @@ public class LoggingAspect {
      *
      * @param joinPoint
      */
-    @AfterReturning(value = "execution(public int com.alan.demo.utils.spring.AOP3.ArithmeticCalculator.*(..))",
+    @AfterReturning(value = "execution(public int com.alan.demo.utils.spring.aop.AOP3.ArithmeticCalculator.*(..))",
             returning = "result")
     public void afterReturning(JoinPoint joinPoint, Object result) {
         String name = joinPoint.getSignature().getName();
@@ -72,7 +72,7 @@ public class LoggingAspect {
      * @param joinPoint
      * @param Ex
      */
-    @AfterThrowing(value = "execution(public int com.alan.demo.utils.spring.AOP3.ArithmeticCalculator.*(..))",
+    @AfterThrowing(value = "execution(public int com.alan.demo.utils.spring.aop.AOP3.ArithmeticCalculator.*(..))",
             throwing = "Ex")
     public void afterThrowing(JoinPoint joinPoint, Exception Ex) {
         String methodName = joinPoint.getSignature().getName();
@@ -86,7 +86,7 @@ public class LoggingAspect {
      *
      * @param pjd
      */
-    @Around("execution(public int com.alan.demo.utils.spring.AOP3.ArithmeticCalculator.*(..))")
+    @Around("execution(public int com.alan.demo.utils.spring.aop.AOP3.ArithmeticCalculator.*(..))")
     public Object aroundMethod(ProceedingJoinPoint pjd) {
         Object result = null;
         String methName = pjd.getSignature().getName();

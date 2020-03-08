@@ -1,4 +1,4 @@
-package com.alan.demo.utils.spring.AOP2;
+package com.alan.demo.utils.spring.aop.AOP3;
 
 import org.springframework.stereotype.Component;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @Date 2020/1/28
  */
 
-@Component("ArithmeticCalculatorImpl")
+@Component("ArithmeticCalculatorImpll")
 public class ArithmeticCalculatorImpl implements ArithmeticCalculator {
     @Override
     public int add(int i, int j) {

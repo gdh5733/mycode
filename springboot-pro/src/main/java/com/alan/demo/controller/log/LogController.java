@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class LogController {
 
-
     Logger logger = LoggerFactory.getLogger(getClass());
 
     @ApiOperation(value = "测试打印log到文件", notes = "测试log到文件")
     @GetMapping(value = "/logtest")
     public void login() {
+
         logger.info("这个是trace日志...");
         logger.debug("这个是dubug日志...");
     }

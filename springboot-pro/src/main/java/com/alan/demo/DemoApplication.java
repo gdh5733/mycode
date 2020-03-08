@@ -11,11 +11,12 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @EnableRabbit
 public class DemoApplication {
+
+
     public static void main(String[] args) throws InterruptedException {
 
 
         SpringApplication.run(DemoApplication.class, args);
-
 
 //       ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
 //      Person person = ctx.getBean(Person.class);
