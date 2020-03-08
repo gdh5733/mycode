@@ -44,10 +44,19 @@
                     </key>
                     <value>老师的领导小高</value>
                 </entry>
-
-
             </map>
         </property>
+    </bean>
+
+
+    <!--采用工厂的方式生成bean-->
+    <bean id="factory" class="com.alan.demo.utils.spring.factoryBean.MyFactory"></bean>
+
+
+    <!--验证bean的生命周期-->
+    <bean id="person" class="com.alan.demo.utils.spring.Entity.Person" init-method="init" destroy-method="destory">
+        <property name="name" value="小王"></property>
+        <property name="sex" value="男"></property>
     </bean>
 
 
