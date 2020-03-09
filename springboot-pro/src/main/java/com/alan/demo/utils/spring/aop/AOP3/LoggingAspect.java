@@ -1,14 +1,12 @@
 package com.alan.demo.utils.spring.aop.AOP3;
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
-
 import java.util.Arrays;
 
 /**
- * @Description
+ * @Description 切面 即AOP需要处理的逻辑
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0

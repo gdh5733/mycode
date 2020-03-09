@@ -15,14 +15,14 @@
 
 
         <!-- 配置 tk.mybatis 插件 -->
-<!--        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">-->
-<!--            <property name="mappers" value="com.tk.MyMapper"/>-->
-<!--        </plugin>-->
+        <!--        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">-->
+        <!--            <property name="mappers" value="com.tk.MyMapper"/>-->
+        <!--        </plugin>-->
 
 
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.1.6:3307/boot_user?" userId="root" password="123456"
+                        connectionURL="jdbc:mysql://192.168.1.6:3307/xt?" userId="root" password="123456"
         >
         </jdbcConnection>
         <!-- 配置数据库连接 -->
@@ -46,7 +46,7 @@
                 type="XMLMAPPER"/>
 
         <!-- 配置需要指定生成的数据库和表，% 代表所有表 -->
-        <table schema="" tableName="nba_player">
+        <table schema="" tableName="stock">
             <generatedKey column="id" sqlStatement="JDBC"></generatedKey>
 
         </table>

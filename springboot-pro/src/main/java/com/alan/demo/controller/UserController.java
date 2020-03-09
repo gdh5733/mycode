@@ -1,5 +1,4 @@
 package com.alan.demo.controller;
-
 import com.alan.demo.service.TestService;
 import com.alan.demo.service.UserService;
 import io.swagger.annotations.Api;
