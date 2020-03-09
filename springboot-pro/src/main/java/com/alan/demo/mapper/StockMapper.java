@@ -28,6 +28,7 @@ public interface StockMapper {
      * This method corresponds to the database table stock
      *
      * @mbg.generated Mon Mar 09 13:49:20 CST 2020
+     * @param sid
      */
     Stock selectByPrimaryKey(Integer sid);
 

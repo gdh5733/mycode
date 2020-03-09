@@ -8,5 +8,5 @@ public interface StockService {
      *
      * @param bid
      */
-    void updateSt(String bid);
+    void updateSt(Integer bid);
 }

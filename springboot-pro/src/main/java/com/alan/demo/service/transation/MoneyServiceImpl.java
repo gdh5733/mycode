@@ -1,7 +1,4 @@
 package com.alan.demo.service.transation;
-
-import com.alan.demo.mapper.MoneyMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,11 +12,5 @@ import org.springframework.stereotype.Service;
 @Service
 public class MoneyServiceImpl implements MoneyService {
 
-    @Autowired
-    MoneyMapper moneyMapper;
 
-    @Override
-    public void update() {
-
-    }
 }
