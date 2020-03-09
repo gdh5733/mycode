@@ -123,7 +123,6 @@ public class FtpUtils {
             log.error("获取不到文件流", e);
         }
         return response;
-
     }
 
 }
