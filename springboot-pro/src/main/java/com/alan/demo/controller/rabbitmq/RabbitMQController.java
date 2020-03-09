@@ -73,5 +73,4 @@ public class RabbitMQController {
 
         this.send.send();
     }
-
 }
