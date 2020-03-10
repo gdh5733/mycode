@@ -1,6 +1,7 @@
 package com.alan.demo.service.elasticsearch;
 
 import com.alan.demo.entity.NbaPlayer;
+import com.alan.demo.mapper.NbaPlayerMapper;
 import com.alibaba.fastjson.JSONObject;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.get.GetRequest;
@@ -42,8 +43,8 @@ public class NBAPlayerServiceImpl implements NBAPlayerService {
     @Resource
     private RestHighLevelClient client;
 
-//    @Resource
-//    private NbaPlayerMapper nbaPlayerDao;
+    @Resource
+    private NbaPlayerMapper nbaPlayerDao;
 
     private static final String NBA_INDEX = "nba_latest";
 
@@ -134,11 +135,10 @@ public class NBAPlayerServiceImpl implements NBAPlayerService {
      */
     @Override
     public boolean importAll() throws IOException {
-//        List<NbaPlayer> list = nbaPlayerDao.selectAll();
-//        for (NbaPlayer player : list) {
-//        addPlayer(player, String.valueOf(player.getId()));
-//    }
-//        return true;
+        List<NbaPlayer> list = nbaPlayerDao.selectAll();
+        for (NbaPlayer player : list) {
+            addPlayer(player, String.valueOf(player.getId()));
+        }
         return true;
     }
 
@@ -168,10 +168,17 @@ public class NBAPlayerServiceImpl implements NBAPlayerService {
             NbaPlayer player = JSONObject.parseObject(hit.getSourceAsString(), NbaPlayer.class);
             playerList.add(player);
         }
-
         return playerList;
     }
 
+    /**
+     * 通过term进行查询(单词)
+     *
+     * @param key
+     * @param value
+     * @return
+     * @throws IOException
+     */
     @Override
     public List<NbaPlayer> searchTerm(String key, String value) throws IOException {
         SearchRequest searchRequest = new SearchRequest(NBA_INDEX);

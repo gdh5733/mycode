@@ -2,6 +2,7 @@ package com.alan.demo.controller.elasticsearch;
 
 import com.alan.demo.entity.NbaPlayer;
 import com.alan.demo.service.elasticsearch.NBAPlayerService;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ public class NBASearchController {
     @Autowired
     private NBAPlayerService nbaPlayerService;
 
+    @ApiOperation(value = "从数据中查出数据", notes = "从数据中查出数据")
     @GetMapping("/importAll")
     public String importAll() {
         try {
@@ -37,6 +39,8 @@ public class NBASearchController {
         return "success";
     }
 
+
+    @ApiOperation(value = "使用direct交换机发送", notes = "发送消息")
     @GetMapping("/searchMatch")
     public List<NbaPlayer> searchMatch(@RequestParam(value = "displayNameEn", required = false) String displayNameEn) {
         try {
@@ -47,6 +51,7 @@ public class NBASearchController {
         return null;
     }
 
+    @ApiOperation(value = "通过term匹配查询", notes = "通过term匹配查询")
     @GetMapping("/searchTerm")
     public List<NbaPlayer> searchTerm(@RequestParam(value = "country", required = false) String country,
                                       @RequestParam(value = "teamName", required = false) String teamName) {
@@ -63,7 +68,7 @@ public class NBASearchController {
         return null;
     }
 
-
+    @ApiOperation(value = "使用searchMatchPrefix", notes = "使用searchMatchPrefix")
     @GetMapping("/searchMatchPrefix")
     public List<NbaPlayer> searchMatchPrefix(@RequestParam(value = "displayNameEn", required = false) String displayNameEn) {
         try {
@@ -74,6 +79,7 @@ public class NBASearchController {
         return null;
     }
 
+    @ApiOperation(value = "查询文档信息", notes = "查询文档信息")
     @GetMapping("/searchDoc")
     public Map<String, Object> searchOneDoc(@RequestParam(value = "docid", required = true) String docid) {
         try {
