@@ -77,6 +77,5 @@ public class StreamDemo {
                 .get();
         System.out.println("集合中的最小的值为:" + minval);
 
-
     }
 }

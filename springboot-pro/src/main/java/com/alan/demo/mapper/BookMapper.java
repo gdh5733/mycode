@@ -1,8 +1,6 @@
 package com.alan.demo.mapper;
-
 import com.alan.demo.entity.Book;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component
