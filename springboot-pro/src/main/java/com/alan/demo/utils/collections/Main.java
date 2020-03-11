@@ -23,7 +23,5 @@ public class Main {
         list.forEach(val -> {
             System.out.println(val);
         });
-
     }
-
 }
