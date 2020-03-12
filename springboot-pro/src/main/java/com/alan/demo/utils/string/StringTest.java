@@ -1,5 +1,4 @@
 package com.alan.demo.utils.string;
-
 /**
  * @Description String(不可变性)
  * @Author gaodehan
@@ -24,6 +23,12 @@ public class StringTest {
      * 实现了Comparable接口： 表示String可以比较大小
      * 3.String内部定义了final char[] value 用于存储字符串数据
      * 4.String 代表不可变的字符序列  简称: 不可变性
+     *
+     * 体现:1.当字符串重新赋值时，需要重写指定内存区域赋值,不能使用原有的value赋值
+     * 2.当对现有的字符串进行连接操作时,也需要重新指定内存区域赋值,不能使用原有的value赋值
+     *
+     * 5.通过字面量的方式(区别于new)给一个字符串赋值,此时的字符串声明在字符串常量池中。
+     * 6.字符串常量池中是不会存储相同内容的字符串的。
      */
     public static void test1() throws InterruptedException {
         String s1 = "abc";//字面量的定义方式

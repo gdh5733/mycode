@@ -1,5 +1,4 @@
 package com.alan.demo.controller.aop;
-
 import com.alan.demo.utils.spring.aop.AOP3.ArithmeticCalculator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 public class AspectController {
-
 
     @Autowired
     ArithmeticCalculator arithmeticCalculator;

@@ -1,5 +1,4 @@
 package com.alan.demo.utils.string.exer;
-
 /**
  * @Description
  * @Author gaodehan
@@ -41,6 +40,7 @@ public class StringDemo {
         }
         return null;
     }
+
 
     /**
      * 方式二  使用String的拼接

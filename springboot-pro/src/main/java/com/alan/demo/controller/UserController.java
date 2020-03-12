@@ -55,7 +55,5 @@ public class UserController {
         String sentence = "Hello World";
         return sentence;
     }
-
-
 }
 

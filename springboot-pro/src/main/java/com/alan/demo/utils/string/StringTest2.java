@@ -1,7 +1,9 @@
 package com.alan.demo.utils.string;
 
 /**
- * @Description
+ * @Description 基本数据类型传的是值
+ * 引用数据类型传递的是地址
+ * 但是String比较特殊 具有不可变性
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
