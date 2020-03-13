@@ -1,9 +1,7 @@
 package com.alan.demo.utils.collection;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
 import java.util.*;
 
 /**

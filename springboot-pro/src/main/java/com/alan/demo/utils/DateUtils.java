@@ -1,7 +1,6 @@
 package com.alan.demo.utils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 /**
  * @Description 时间格式化
  * @Author gaodehan
