@@ -28,7 +28,6 @@ public class StreamDemo {
     static void gen2() {
         List<String> list = Arrays.asList("1,2,3,4");
         Stream<String> stream = list.stream();
-
         stream.forEach(System.out::println);
 
     }

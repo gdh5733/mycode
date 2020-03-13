@@ -133,7 +133,5 @@ public class MapTest {
         Map<String, String> map = new HashMap<>();
         map.put("k1", "v1");
     }
-
-
 }
 

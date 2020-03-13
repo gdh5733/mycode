@@ -1,10 +1,8 @@
 package com.alan.demo.utils.collection;
-
 import java.util.ArrayList;
 import java.util.List;
-
 /**
- * @Description ArrayList 源码分析
+ * @Description ArrayList
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
@@ -29,12 +27,7 @@ public class ListTest {
         list.add(1);
         list.add(2);
         list.add(3);
-
         list.remove(new Integer(2));
-
         System.out.println(list);
-
     }
-
-
 }

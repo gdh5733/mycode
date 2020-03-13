@@ -1,5 +1,4 @@
 package com.alan.demo.controller.redis.Hash;
-
 import com.alan.demo.entity.Cart;
 import com.alan.demo.entity.CartPage;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
 /**
  * @Description redis实现购物车简单逻辑
  * @Author gaodehan
@@ -84,9 +82,7 @@ public class UserCartController {
     public void delCart(Long userId, Long productId) {
         String key = CART_KEY + userId;
         this.redisTemplate.opsForHash().delete(key, productId.toString());
-
         // TODO: 2020/2/7 发rabbitmq 出去
-
     }
 
 

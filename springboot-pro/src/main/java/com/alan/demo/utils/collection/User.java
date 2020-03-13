@@ -54,8 +54,12 @@ public class User implements Comparable {
     public boolean equals(Object o) {
 
         System.out.println("equals.....");
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         User user = (User) o;
         return name.equals(user.name) &&
                 age.equals(user.age);
