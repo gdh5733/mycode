@@ -1,8 +1,16 @@
 package com.alan.demo.utils.enums;
 
-
 /**
  * 相当于一个小型的mysql来使用   枚举 ContryEnum 相当于是库        ONE TWO THREE 就相当于是表  里边的值就相当于是列
+ *
+ * 类的对象只有有限个,确定的。举例如下:
+ * 星期: Monday(星期一),....Sunday(星期天)
+ * 性别: Man(男).Woman(女)
+ * 季节:Spring(春节)....Winter(冬天)
+ * 支付方式: Cash(现金),WeChatPay(微信),Alipay(支付宝),BankCard(银行卡),CreditCard(信用卡)
+ * 就职状态:Busy,Free,Vocation,Dimission
+ * 订单状态:Nonpayment(未付款),Paid(已付款),Deliver(已发货),Return(退货)，Checked(已确认),Fulfilled(以配货)
+ * 线程状态: 创建,就绪,运行,阻塞,死忙
  */
 
 
