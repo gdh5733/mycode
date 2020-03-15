@@ -1,7 +1,9 @@
 package com.alan.demo.utils.collection;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
 import java.util.*;
 
 /**
@@ -56,7 +58,9 @@ public class HashSetTest {
 
     /**
      * LinkHashSet底层是用的数组+链表
+     * LinkedHashSet作为HashSet的子类,在添加数据的同时,每个数据还维护了两个引用,记录前一个数据和后一个数据的位置
      * 但和HashSet不同的是多了一层链表能够准确找到每个添加的元素
+     * 优点: 对于频繁的遍历操作,LinkedHashSet效率高于HashSet
      */
     public void testLinkHashSet() {
         Set set = new LinkedHashSet();

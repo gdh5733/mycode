@@ -1,5 +1,4 @@
 package com.alan.demo.utils.poi;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +17,6 @@ import java.util.Date;
 @Setter
 @Getter
 public class Member {
-
 
     private Integer code;
     private String name;
