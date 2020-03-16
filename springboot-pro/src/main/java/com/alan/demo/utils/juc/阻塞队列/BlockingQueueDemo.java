@@ -1,10 +1,7 @@
 package com.alan.demo.utils.juc.阻塞队列;
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
-
-
 /**
  * 非同步阻塞队列
  *
