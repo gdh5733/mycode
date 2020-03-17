@@ -1,6 +1,5 @@
 package com.alan.demo.utils.Netty.nio;
 import com.sun.org.apache.xpath.internal.operations.String;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -37,6 +36,4 @@ public class NIOFileChannel02 {
         fileInputStream.close();
 
     }
-
-
 }
