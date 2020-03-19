@@ -1,5 +1,4 @@
 package com.alan.demo.utils.Netty.nio;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -66,6 +65,13 @@ public class NIOServer {
                 if (key.isAcceptable()) {//如果是OP_ACCPECT,有新的客户端连接
                     //该客户端生成一个 SocketChannel
                     SocketChannel socketChannel = serverSocketChannel.accept();
+
+                    System.out.println("客户端连接成功 生成了一个  socketChannel " + socketChannel.hashCode());
+
+
+                    //将sockerChannel 设置为非阻塞
+                    socketChannel.configureBlocking(false);
+
                     //将socketchannel 注册到selector,关注事件为OP_READ,同时给socketChannel
                     //关联一个Buffer
                     socketChannel.register(selector, SelectionKey.OP_READ, ByteBuffer.allocate(1024));
