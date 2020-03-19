@@ -3,6 +3,6 @@
 //import org.springframework.stereotype.Component;
 //
 //
-//public interface Payment {
+//public hssinterface Payment {
 //    void pay();
 //}
