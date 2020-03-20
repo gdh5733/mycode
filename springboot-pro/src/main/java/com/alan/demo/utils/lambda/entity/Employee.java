@@ -1,6 +1,5 @@
 package com.alan.demo.utils.lambda.entity;
 import lombok.*;
-
 /**
  * @Description
  * @Author gaodehan
@@ -22,8 +21,10 @@ public class Employee {
 
     private Status status;
 
-    public Employee(String name) {
+    public Employee(String name,String age,Double salary) {
         this.name = name;
+        this.age = age;
+        this.salary = salary;
     }
 
     public enum Status {
