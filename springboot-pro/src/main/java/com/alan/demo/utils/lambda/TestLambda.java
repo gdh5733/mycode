@@ -17,11 +17,11 @@ public class TestLambda {
 
     List<Employee> list = Arrays.asList(
 
-            new Employee("a", 18, 9999.99),
-            new Employee("b", 38, 5555.99),
-            new Employee("c", 50, 6666.99),
-            new Employee("d", 16, 3333.33),
-            new Employee("e", 8, 7777.77)
+            new Employee("a", "18", 9999.99,Employee.Status.FREE),
+            new Employee("b", "38", 5555.99,Employee.Status.FREE),
+            new Employee("c", "50", 6666.99,Employee.Status.FREE),
+            new Employee("d", "16", 3333.33,Employee.Status.FREE),
+            new Employee("e", "8", 7777.77,Employee.Status.FREE)
     );
 
 

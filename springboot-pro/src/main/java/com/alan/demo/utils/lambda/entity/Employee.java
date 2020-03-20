@@ -1,7 +1,5 @@
 package com.alan.demo.utils.lambda.entity;
-
 import lombok.*;
-import org.apache.ibatis.annotations.ConstructorArgs;
 
 /**
  * @Description
@@ -19,6 +17,18 @@ import org.apache.ibatis.annotations.ConstructorArgs;
 public class Employee {
 
     private String name;
-    private int age;
+    private String age;
     private double salary;
+
+    private Status status;
+
+    public Employee(String name) {
+        this.name = name;
+    }
+
+    public enum Status {
+        FREE,
+        BUSY,
+        VOCATION;
+    }
 }
