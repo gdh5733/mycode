@@ -51,6 +51,14 @@ public class TestStreamAPI3 {
      */
 
 
+    public void test10() {
+        String str = employeeList.stream()
+                .map(Employee::getName)
+                .collect(Collectors.joining(","));
+        System.out.println(str);
+    }
+
+
     //多级分组 先按状态分组 在按年龄分组
     public void test7() {
         employeeList.stream()
