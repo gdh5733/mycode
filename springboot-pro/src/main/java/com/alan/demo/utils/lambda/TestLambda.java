@@ -1,9 +1,6 @@
 package com.alan.demo.utils.lambda;
-
-import com.alan.demo.utils.juc.T;
 import com.alan.demo.utils.lambda.entity.Employee;
-import com.alan.demo.utils.lambda.hssinterface.MyPredict;
-
+import com.alan.demo.utils.lambda.myinterface.MyPredict;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -67,13 +64,13 @@ public class TestLambda {
     }
 
 
-    //lambda表达式1
+    //lambda优化
     private void lambda1() {
 
         filterEmployees(list, e -> e.getSalary() <= 5000);
     }
 
-    //lambda表达式2
+    //stream优化
     private void lambda2() {
         list.stream()
                 .filter((e) -> e.getSalary() >= 5000)
@@ -85,8 +82,6 @@ public class TestLambda {
                 .map(Employee::getName)
                 .collect(Collectors.toList());
 
-
     }
-
 
 }

@@ -1,6 +1,6 @@
 //package com.alan.demo.utils.spring.aop.AOP2;
 //
-//public hssinterface ArithmeticCalculator {
+//public myinterface ArithmeticCalculator {
 //
 //
 //    int add(int i, int j);
