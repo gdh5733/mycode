@@ -2,8 +2,11 @@ package com.alan.demo.utils.lambda.stream;
 
 import com.alan.demo.utils.lambda.entity.Employee;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.LongStream;
 
 /**
  * @Description
@@ -21,6 +24,26 @@ public class TestStreamAPI3 {
         testStreamAPI3.test1();
         testStreamAPI3.test2();
     }
+
+
+    /**
+     * java8 并行流
+     */
+    public void test11() {
+
+        Instant start = Instant.now();
+
+        LongStream.rangeClosed(0, 100000000000000000L)
+                .parallel()
+                .reduce(0, Long::sum);
+
+        Instant end = Instant.now();
+
+        System.out.println("耗费时间为: " + Duration.between(start, end).toMillis());
+
+    }
+
+
 
     /*
     查找与匹配

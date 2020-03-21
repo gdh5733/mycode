@@ -66,7 +66,7 @@ public class TestMethodRef {
     }
 
     public void test6() {
-        Function<String, Employee> fun = (x) -> new Employee(x);
+        Function<String, Employee> fun = (x) -> new Employee();
         Employee emp = fun.apply("hh");
         System.out.println(emp);
 

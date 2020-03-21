@@ -1,8 +1,5 @@
 package com.alan.demo.utils.lambda.stream;
-
 import com.alan.demo.utils.lambda.entity.Employee;
-
-import javax.swing.text.html.Option;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
