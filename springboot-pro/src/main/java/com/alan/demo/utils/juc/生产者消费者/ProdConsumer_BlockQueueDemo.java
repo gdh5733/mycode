@@ -1,13 +1,10 @@
 package com.alan.demo.utils.juc.生产者消费者;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-
 /**
  * @Description 3.0版本  阻塞队列
  * @Author gaodehan

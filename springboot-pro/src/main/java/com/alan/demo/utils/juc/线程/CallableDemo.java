@@ -1,9 +1,7 @@
 package com.alan.demo.utils.juc.线程;
-
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-
 /**
  * @Description 利用Callable实现线程   有返回值   (应用场景需要多线程处理有返回值得数据)
  * 主要用于多线程处理数据   最后算出返回值

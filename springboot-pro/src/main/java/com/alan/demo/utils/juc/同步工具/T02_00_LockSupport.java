@@ -1,5 +1,4 @@
 package com.alan.demo.utils.juc.同步工具;
-
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.LockSupport;

@@ -1,7 +1,5 @@
 package com.alan.demo.utils.juc.同步工具;
-
 import java.util.concurrent.CountDownLatch;
-
 /**
  * @Description
  * CountDowmLatch demo 练习
