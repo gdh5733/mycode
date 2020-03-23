@@ -1,5 +1,4 @@
 package com.alan.demo.controller.redis.Hash;
-
 import com.alan.demo.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
-
 /**
  * @Description
  * @Author gaodehan
