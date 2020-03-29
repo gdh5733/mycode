@@ -1,6 +1,4 @@
 package com.alan.demo.service.rabbitmq;
-
-import com.alan.demo.config.rabbitmq.DirectConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

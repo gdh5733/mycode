@@ -40,7 +40,7 @@ public class NBASearchController {
     }
 
 
-    @ApiOperation(value = "使用direct交换机发送", notes = "发送消息")
+    @ApiOperation(value = "全文检索", notes = "发送消息")
     @GetMapping("/searchMatch")
     public List<NbaPlayer> searchMatch(@RequestParam(value = "displayNameEn", required = false) String displayNameEn) {
         try {
