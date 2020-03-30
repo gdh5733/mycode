@@ -28,7 +28,7 @@ public class FtpUtils {
 
 
     //ftp服务器ip地址
-    private static final String FTP_ADDRESS = "192.168.1.6";
+    private static final String FTP_ADDRESS = "192.168.1.7";
 
     //端口号
     private static final int FTP_PORT = 21;

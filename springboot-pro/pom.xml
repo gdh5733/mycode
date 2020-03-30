@@ -73,6 +73,19 @@
         </dependency>
 
 
+        <!-- poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.14</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.14</version>
+        </dependency>
+
         <!--  lombok 主要用于@data @slf4j的使用-->
         <dependency>
             <groupId>org.projectlombok</groupId>
