@@ -1,9 +1,11 @@
 package com.alan.demo.utils.juc.线程.异步编排;
+
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
 /**
  * @Description CompletableFuture 异步编排
  * <p>
@@ -37,7 +39,7 @@ public class CompletableFutureDemo {
             return uuid;
 
         }, pool).thenApply((r) -> {
-            System.out.println("上一步的结果是: + r");
+            System.out.println("上一步的结果是: " + r);
             return r.replace("-", "");
         }).whenComplete((r, e) -> {
             System.out.println("最终的结果是" + r);

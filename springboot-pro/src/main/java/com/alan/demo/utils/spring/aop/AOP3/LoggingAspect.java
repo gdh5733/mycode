@@ -1,12 +1,30 @@
 package com.alan.demo.utils.spring.aop.AOP3;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 
 /**
  * @Description 切面 即AOP需要处理的逻辑
+ * <p>
+ * 通知
+ * 前置通知: 方法执行之前触发
+ * 后置通知: 方法执行之后触发
+ * 返回通知: 方法正常返回之后触发
+ * 异常通知: 方法出现异常触发
+ * <p>
+ * 正常执行: 前置通知==>返回通知==>后置通知
+ * 异常执行: 前置通知==>异常通知==>后置通知
+ * <p>
+ * 环绕通知: 4和1
+ * <p>
+ * 注意--> 后置通知总是执行
+ *
+ * 目标方法有异常 要抛出去 让别人感知
+ *
  * @Author gaodehan
  * @Version V1.0.0
  * @Since 1.0
@@ -36,7 +54,8 @@ public class LoggingAspect {
 
 
     /**
-     * 后置通知(在方法执行之后执行的代码,无论该方法是否出现异常)
+     * 后置通知
+     * (在方法执行之后执行的代码,无论该方法是否出现异常)
      *
      * @param joinPoint
      */
@@ -48,6 +67,8 @@ public class LoggingAspect {
     }
 
     /**
+     * 返回通知
+     * <p>
      * 在方法正常结束后执行的代码
      * 返回通知是可以访问到方法的返回值
      *
@@ -78,6 +99,8 @@ public class LoggingAspect {
     }
 
     /**
+     * 环绕通知
+     * <p>
      * 环绕通知需要携带ProceedingJoinPoint 类型的参数,
      * 环绕通知类似于动态代理的全过程: ProceedingJoinPoint 类型的参数可以决定是否执行目标方法
      * 且环绕通知必须有返回值,返回值即为目标方法的返回值
@@ -95,16 +118,17 @@ public class LoggingAspect {
             System.out.println("The method " + methName + "begins with " + Arrays.asList(pjd.getArgs()));
             //执行目标方法
             result = pjd.proceed();
-            //后置通知
+            //返回通知
             System.out.println("The method ends with " + result);
         } catch (Throwable e) {
             //异常通知
             System.out.println("The method occurs exception: " + e);
             throw new RuntimeException(e);
+        } finally {
+            //后置通知
+            System.out.println("The method " + methName + "ends");
         }
 
-        //后置通知
-        System.out.println("The method " + methName + "ends");
         return result;
     }
 
