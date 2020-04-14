@@ -15,3 +15,6 @@
   8. Lambda
   9. JVM
   10. Java集合
+  
+  
+## 将application.yml 中服务的IP 端口 换成自己的即可使用！  
