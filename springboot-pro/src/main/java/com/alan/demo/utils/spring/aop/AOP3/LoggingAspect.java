@@ -1,10 +1,8 @@
 package com.alan.demo.utils.spring.aop.AOP3;
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
-
 import java.util.Arrays;
 
 /**

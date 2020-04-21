@@ -23,7 +23,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableCaching //开启注解
 public class RedisConfig extends CachingConfigurerSupport {
 
-
     @Bean
     public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
         //设置序列化

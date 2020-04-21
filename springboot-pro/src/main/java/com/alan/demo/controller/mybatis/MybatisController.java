@@ -1,5 +1,4 @@
 package com.alan.demo.controller.mybatis;
-
 import com.alan.demo.entity.Users;
 import com.alan.demo.service.UsersService;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Random;
-
 /**
  * @Description Mybatis 采用NoSQL形式  实现增删改查
  * @Author gaodehan

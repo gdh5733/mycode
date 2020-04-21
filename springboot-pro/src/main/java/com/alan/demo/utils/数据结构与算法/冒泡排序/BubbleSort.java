@@ -1,7 +1,5 @@
-package com.alan.demo.utils.算法.冒泡排序;
-
+package com.alan.demo.utils.数据结构与算法.冒泡排序;
 import com.alan.demo.utils.DateUtils;
-
 import java.util.Date;
 
 /**

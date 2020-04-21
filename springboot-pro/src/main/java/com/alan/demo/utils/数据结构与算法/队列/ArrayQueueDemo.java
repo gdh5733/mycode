@@ -1,4 +1,4 @@
-package com.alan.demo.utils.算法.队列;
+package com.alan.demo.utils.数据结构与算法.队列;
 
 import java.util.Scanner;
 

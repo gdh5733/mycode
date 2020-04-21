@@ -1,4 +1,4 @@
-package com.alan.demo.utils.算法.快速排序;
+package com.alan.demo.utils.数据结构与算法.快速排序;
 
 import org.apache.commons.lang3.ArrayUtils;
 

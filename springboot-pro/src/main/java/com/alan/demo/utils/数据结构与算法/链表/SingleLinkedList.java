@@ -1,8 +1,8 @@
-package com.alan.demo.utils.算法.链表;
+package com.alan.demo.utils.数据结构与算法.链表;
 
 import java.util.Stack;
 
-import static com.alan.demo.utils.算法.链表.SingleLinkedListDemo.*;
+import static com.alan.demo.utils.数据结构与算法.链表.SingleLinkedListDemo.*;
 
 /**
  * @Description 简单的链表实现  (头节点不能动)

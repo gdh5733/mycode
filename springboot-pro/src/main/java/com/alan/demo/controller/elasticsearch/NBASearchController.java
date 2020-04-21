@@ -1,5 +1,4 @@
 package com.alan.demo.controller.elasticsearch;
-
 import com.alan.demo.entity.NbaPlayer;
 import com.alan.demo.service.elasticsearch.NBAPlayerService;
 import io.swagger.annotations.ApiOperation;

@@ -19,7 +19,7 @@ spring:
     max-active: 30 #最大空闲数
     min-idle: 10  #最小空闲数
   rabbitmq:
-    host: 192.168.1.7
+    host: 192.168.1.6
     port: 5672
     username: guest
     password: guest

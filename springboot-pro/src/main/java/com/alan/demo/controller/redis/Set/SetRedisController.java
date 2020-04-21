@@ -1,5 +1,4 @@
 package com.alan.demo.controller.redis.Set;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.Set;
-
 /**
  * @Description Set 类型操作
  * @Author gaodehan

@@ -1,4 +1,4 @@
-package com.alan.demo.utils.算法.链表;
+package com.alan.demo.utils.数据结构与算法.链表;
 
 /**
  * @Description 约瑟夫问题

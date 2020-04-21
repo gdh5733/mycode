@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * @Description CompletableFuture 异步编排
+ * @Description CompletableFutureDemo 异步编排
  * <p>
  * Future 接口可以构建异步应用,但依然有其局限性,它很难直接表述多个Future 结果之间的依赖性,
  * 实际开发中,我们经常需要达成以下目的:

@@ -1,5 +1,4 @@
 package com.alan.demo.controller.redis.Hash;
-
 import com.alan.demo.entity.CookieCart;
 import com.alan.demo.service.IdGenerator;
 import lombok.extern.slf4j.Slf4j;
