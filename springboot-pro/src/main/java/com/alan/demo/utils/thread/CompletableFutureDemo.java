@@ -1,6 +1,8 @@
 package com.alan.demo.utils.thread;
-
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @Description CompletableFuture 详解
@@ -12,12 +14,14 @@ import java.util.concurrent.CompletableFuture;
 
 public class CompletableFutureDemo {
 
+    public static ExecutorService executor = Executors.newFixedThreadPool(10);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
         CompletableFutureDemo obj = new CompletableFutureDemo();
 //        obj.TestthenApply();
 //        obj.TestthenRun();
-        obj.whenComplete();
+//        obj.whenComplete();
+        obj.TestSupplyAsync();
     }
 
     /**
@@ -126,7 +130,7 @@ public class CompletableFutureDemo {
      * 它没有口子返回如果没有异常时的正确的值，这也就引出下面我们要介绍的handle。
      * 运行完成时，对结果的处理。这里的完成时有两种情况，一种是正常执行，返回值。
      * 另外一种是遇到异常抛出造成程序的中断。
-     *
+     * <p>
      * 出现异常时
      */
     public void handle1() {
@@ -168,6 +172,36 @@ public class CompletableFutureDemo {
             return s;
         }).join();
         System.out.println(result);
+    }
+
+
+    /**
+     * 测试SupplyAsync 有返回值
+     */
+    public void TestSupplyAsync() throws ExecutionException, InterruptedException {
+
+        CompletableFuture<String> futureImg = CompletableFuture.supplyAsync(() -> {
+            System.out.println("查询商品的图片信息");
+            return "hello.jpg";
+        }, executor);
+
+        CompletableFuture<String> futureAttr = CompletableFuture.supplyAsync(() -> {
+            System.out.println("查询商品的属性");
+            return "黑色+256G";
+        }, executor);
+
+        CompletableFuture<String> futureDesc = CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(3000);
+                System.out.println("查询商品介绍");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return "华为";
+        }, executor);
+        CompletableFuture<Object> anyOf = CompletableFuture.anyOf(futureImg, futureAttr, futureDesc);
+        anyOf.get();//等待所有结果完成
+        System.out.println("所有的任务完成" + anyOf.get());
     }
 
 }
