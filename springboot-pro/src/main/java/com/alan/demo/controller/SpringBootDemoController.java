@@ -45,11 +45,12 @@ public class SpringBootDemoController {
     @ApiOperation("测试log方法")
     @GetMapping(value = "/log")
     public void log() {
-        log.trace("-----trace------");
-        log.debug("---debug---");
-        log.error("---error---");
-        log.info("----info---");
-        log.warn("---warn---");
+//        log.trace("-----trace------");
+//        log.debug("---debug---");
+//        log.error("---error---");
+//        log.info("----info---");
+//        log.warn("---warn---");
+
     }
 
     /**
@@ -61,21 +62,25 @@ public class SpringBootDemoController {
     @ApiOperation("测试异步")
     @RequestMapping(value = "/sync", method = RequestMethod.GET)
     public ResponseEntity<TInfo> createUser() {
-        log.info("--------------注册用户--------------");
-        this.scoreService.addScore();
-        TInfo bean = new TInfo();
-        bean.setId(1);
-        bean.setTelephone("17614099818");
-        bean.setUserAddress("吉林辽源");
-        return ResponseEntity.ok().body(bean);
+//        log.info("--------------注册用户--------------");
+//        this.scoreService.addScore();
+//        TInfo bean = new TInfo();
+//        bean.setId(1);
+//        bean.setTelephone("17614099818");
+//        bean.setUserAddress("吉林辽源");
+//        return ResponseEntity.ok().body(bean);
+
+
+        return null;
     }
 
 
     @ApiOperation(value = "测试异步方法二", notes = "此异步使用自定义线程池")
     @RequestMapping(value = "/sync1", method = RequestMethod.GET)
     public ResponseEntity<String> createUser1() throws InterruptedException {
-        log.info("--------------注册用户--------------");
-        this.scoreService.addScor2();
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("ok");
+//        log.info("--------------注册用户--------------");
+//        this.scoreService.addScor2();
+//        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("ok");
+        return null;
     }
 }
